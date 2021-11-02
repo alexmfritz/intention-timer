@@ -16,6 +16,7 @@ font-family: 'Montserrat', sans-serif; */
 
 body {
   margin: 0;
+  background-color: #2B2733;
 }
 
 header {
@@ -28,24 +29,41 @@ header {
   color: #FFF;
 }
 
+main {
+  height: 100%;
+}
+
 #new-activity {
-  margin-top: 0;
+
 }
 
 .activity-title {
   color: #CBC9CF;
 }
 
-main {
-  background-color: #2B2733;
-  border-right-color: 2px solid #46424D;
+.big-box {
+  float: left;
+  width: 62.5%;
 }
 
 #user-activity-input {
   background-color: #46424D;
 }
 
+.button-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .activity-button {
+  background-color: #46424D;
+  border: 2px solid #FFF;
+  color: #FFF;
+  border-radius: 4px;
+}
+
+.activity-button > img {
+  margin-top: 10px;
   height: 20px;
   width: 150px;
 }
@@ -62,9 +80,16 @@ main {
   border-bottom-color: 5px solid #CBC9CF;
 }
 
+#break {
+  float: left;
+  width: 5%;
+  background-color: red;
+}
+
 aside {
+  float: left;
+  width: 32.5%;
   background-color: #2B2733;
-  border-left-color: 2px solid #46424D;
 }
 
 #no-logged-activities {
