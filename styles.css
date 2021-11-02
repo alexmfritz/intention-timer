@@ -16,6 +16,7 @@ font-family: 'Montserrat', sans-serif; */
 
 body {
   margin: 0;
+  background-color: #2B2733;
 }
 
 header {
@@ -29,8 +30,8 @@ header {
 }
 
 main {
-  background-color: #2B2733;
   border-right-color: 2px solid #46424D;
+  height: 100%;
 }
 
 #new-activity {
@@ -42,8 +43,8 @@ main {
 }
 
 .big-box {
-  display: flex;
-  width: 65%;
+  float: left;
+  width: 64.5%;
 }
 
 #user-activity-input {
@@ -81,8 +82,8 @@ main {
 }
 
 aside {
-  display: flex;
-  width: 35%;
+  float: right;
+  width: 34.5%;
   background-color: #2B2733;
   border-left-color: 2px solid #46424D;
 }
