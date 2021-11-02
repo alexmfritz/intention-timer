@@ -14,16 +14,31 @@
       <h2 class="activity-title" id="new-activity">New Activity</h2>
       <form id="user-activity-input">
         <label class="form-text" id="category">Select a category:<br />
-          <input class="activity-button" id="study" type="image" name="study" value="study" src="./assets/study.svg"/>
-          <input class="activity-button" id="meditate" type="image" name="meditate" value="meditate" src="./assets/meditate.svg"/>
-          <input class="activity-button" id="exercise" type="image" name="exercise" value="exercise" src="./assets/exercise.svg"/>
+          <div class="activity-card">
+            <input class="activity-button" id="study" type="image" name="study" value="study" src="./assets/study.svg"/>
+            <p>Study</p>
+          </div>
+          <div class="activity-card">
+            <input class="activity-button" id="meditate" type="image" name="meditate" value="meditate" src="./assets/meditate.svg"/>
+            <p>Meditate</p>
+          </div>
+          <div class="activity-card">
+            <input class="activity-button" id="exercise" type="image" name="exercise" value="exercise" src="./assets/exercise.svg"/>
+            <p>Exercise</p>
+          </div>
         </label>
-        <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<br />
+        <div id="accomplish-box">
+          <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<p>
           <input class="user-input" id="user-accomplish" type="text" name="accomplish"/></label>
-        <label class="form-text" id="minutes">Minutes<br />
+        </div>
+        <div id="timer-title-box">
+          <label class="form-text" id="minutes">Minutes
+          <label class="form-text" id="seconds">Seconds
+        </div>
+        <div class="timer-input-box">
           <input class="user-input" id="user-minutes" type="number" name="minutes"/></label>
-        <label class="form-text" id="seconds">Seconds<br />
           <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
+        </div>
         <button id="start-activity">START ACTIVITY</button>
       </form>
     </main>
