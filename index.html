@@ -12,19 +12,27 @@
     </header>
     <main>
       <h2 class="activity-title" id="new-activity">New Activity</h2>
-      <form id="user-activity-input">
+      <section id="user-activity-input">
         <label class="form-text" id="category">Select a category:<br />
-          <div class="activity-card">
-            <input class="activity-button" id="study" type="image" name="study" value="study" src="./assets/study.svg"/>
-            <p>Study</p>
-          </div>
-          <div class="activity-card">
-            <input class="activity-button" id="meditate" type="image" name="meditate" value="meditate" src="./assets/meditate.svg"/>
-            <p>Meditate</p>
-          </div>
-          <div class="activity-card">
-            <input class="activity-button" id="exercise" type="image" name="exercise" value="exercise" src="./assets/exercise.svg"/>
-            <p>Exercise</p>
+          <div class="button-box">
+            <div class="activity-card">
+              <button class="activity-button" id="study">
+                <img src="./assets/study.svg">
+                Study
+              </button>
+            </div>
+            <div class="activity-card">
+              <button class="activity-button" id="meditate">
+                <img src="./assets/meditate.svg"/>
+                Meditate
+              </button>
+            </div>
+            <div class="activity-card">
+              <button class="activity-button" id="exercise">
+              <img src="./assets/exercise.svg">
+              Exercise
+              </button>
+            </div>
           </div>
         </label>
         <div id="accomplish-box">
@@ -40,12 +48,12 @@
           <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
         </div>
         <button id="start-activity">START ACTIVITY</button>
-      </form>
+      </section>
+      <aside id="activity-log">
+        <h2 class="activity-title" id="past-activities">Past Activities</h2>
+        <p id="no-logged-activities">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+      </aside>
     </main>
-    <aside id="activity-log">
-      <h2 class="activity-title" id="past-activities">Past Activities</h2>
-      <p id="no-logged-activities">You haven't logged any activities yet. Complete the form to the left to get started!</p>
-    </aside>
   </body>
   <script type="text/javascript" src="./src/Activity.js"></script>
   <script type="text/javascript" src="./src/main.js"></script>
