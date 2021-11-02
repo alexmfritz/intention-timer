@@ -28,6 +28,11 @@ header {
   color: #FFF;
 }
 
+main {
+  background-color: #2B2733;
+  border-right-color: 2px solid #46424D;
+}
+
 #new-activity {
   margin-top: 0;
 }
@@ -36,16 +41,20 @@ header {
   color: #CBC9CF;
 }
 
-main {
-  background-color: #2B2733;
-  border-right-color: 2px solid #46424D;
-}
 
 #user-activity-input {
   background-color: #46424D;
 }
 
 .activity-button {
+  background-color: #46424D;
+  border: 2px solid #FFF;
+  color: #FFF;
+  border-radius: 4px;
+}
+
+.activity-button > img {
+  margin-top: 10px;
   height: 20px;
   width: 150px;
 }
