@@ -11,15 +11,28 @@ Error: #EFB7EC
 font-family: 'Montserrat', sans-serif; */
 
 * {
-  background-color: #2B2733;
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  margin: 0;
+}
+
 header {
+  display: flex;
+  justify-content: center;
   background-color: #46424D;
 }
 
 #page-title {
+  color: #FFF;
+}
+
+#new-activity {
+  margin-top: 0;
+}
+
+.activity-title {
   color: #CBC9CF;
 }
 
@@ -28,21 +41,32 @@ main {
   border-right-color: 2px solid #46424D;
 }
 
+#user-activity-input {
+  background-color: #46424D;
+}
+
 .activity-button {
-  height: 50px;
-  width: 125px;
-  border-color: #CBC9CF;
+  height: 20px;
+  width: 150px;
 }
 
 .form-text {
-  color: #CBC9CF;
+  color: #FFF;
 }
 
 .user-input {
-  border-bottom-color: #CBC9CF;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom-color: 5px solid #CBC9CF;
 }
 
 aside {
   background-color: #2B2733;
   border-left-color: 2px solid #46424D;
+}
+
+#no-logged-activities {
+  color: #CBC9CF;
 }
