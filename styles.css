@@ -34,7 +34,6 @@ header {
   color: #FFF;
 }
 
-
 .activity-title {
   color: #CBC9CF;
 }
@@ -47,8 +46,9 @@ header {
 }
 
 #user-activity-input {
-  margin-left: 25px;
-  width: 95%;
+  margin-left: 37px;
+  height: 75.5vh;
+  width: 92.5%;
   background-color: #46424D;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #26222D;
@@ -57,6 +57,10 @@ header {
 .button-box {
   display: flex;
   justify-content: space-evenly;
+}
+
+.form-text {
+  font-size: 20px;
 }
 
 .activity-button {
@@ -89,14 +93,16 @@ aside {
   width: 34%;
   height: 100vh;
   background-color: #2B2733;
-  border-left: 3px solid #46424D;
-  margin-left: -1px;
 }
 
 .no-logged-activities {
   font-size: 16px;
   text-align: center;
   color: #CBC9CF;
+}
+
+.activity-title {
+  margin-left: 2.5%;
 }
 
 #first-logged-para {
