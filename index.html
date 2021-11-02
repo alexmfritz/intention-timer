@@ -7,6 +7,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
   </head>
   <body>
+    <header>
+      <h1 id="page-title">INTENTION TIMER</h1>
+    </header>
+    <main>
+      <h2 class="activity-title" id="new-activity">New Activity</h2>
+      <form id="user-activity-input">
+        <label class="form-text" id="category">Select a category:<br />
+          <input class="activity-button" id="study" type="image" name="study" value="study" src="./assets/study.svg"/>
+          <input class="activity-button" id="meditate" type="image" name="meditate" value="meditate" src="./assets/meditate.svg"/>
+          <input class="activity-button" id="exercise" type="image" name="exercise" value="exercise" src="./assets/exercise.svg"/>
+        </label>
+        <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<br />
+          <input class="user-input" id="user-accomplish" type="text" name="accomplish"/></label>
+        <label class="form-text" id="minutes">Minutes<br />
+          <input class="user-input" id="user-minutes" type="number" name="minutes"/></label>
+        <label class="form-text" id="seconds">Seconds<br />
+          <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
+        <button id="start-activity">START ACTIVITY</button>
+      </form>
+    </main>
+    <aside id="activity-log">
+      <h2 class="activity-title" id="past-activities">Past Activities</h2>
+      <p id="no-logged-activities">You haven't logged any activities yet. Complete the form to the left to get started!</p>
+    </aside>
   </body>
   <script type="text/javascript" src="./src/Activity.js"></script>
   <script type="text/javascript" src="./src/main.js"></script>
