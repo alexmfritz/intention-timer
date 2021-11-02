@@ -30,7 +30,6 @@ header {
 }
 
 main {
-  border-right-color: 2px solid #46424D;
   height: 100%;
 }
 
@@ -44,7 +43,7 @@ main {
 
 .big-box {
   float: left;
-  width: 64.5%;
+  width: 62.5%;
 }
 
 #user-activity-input {
@@ -81,11 +80,16 @@ main {
   border-bottom-color: 5px solid #CBC9CF;
 }
 
+#break {
+  float: left;
+  width: 5%;
+  background-color: red;
+}
+
 aside {
-  float: right;
-  width: 34.5%;
+  float: left;
+  width: 32.5%;
   background-color: #2B2733;
-  border-left-color: 2px solid #46424D;
 }
 
 #no-logged-activities {
