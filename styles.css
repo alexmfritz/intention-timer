@@ -47,7 +47,11 @@ header {
 }
 
 #user-activity-input {
+  margin-left: 25px;
+  width: 95%;
   background-color: #46424D;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #26222D;
 }
 
 .button-box {
@@ -89,6 +93,12 @@ aside {
   margin-left: -1px;
 }
 
-#no-logged-activities {
+.no-logged-activities {
+  font-size: 16px;
+  text-align: center;
   color: #CBC9CF;
+}
+
+#first-logged-para {
+  margin-top: 10%;
 }
