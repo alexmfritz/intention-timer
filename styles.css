@@ -9,3 +9,40 @@ Meditate: #C278FD
 Exercise: #FD8078
 Error: #EFB7EC
 font-family: 'Montserrat', sans-serif; */
+
+* {
+  background-color: #2B2733;
+  font-family: 'Montserrat', sans-serif;
+}
+
+header {
+  background-color: #46424D;
+}
+
+#page-title {
+  color: #CBC9CF;
+}
+
+main {
+  background-color: #2B2733;
+  border-right-color: 2px solid #46424D;
+}
+
+.activity-button {
+  height: 50px;
+  width: 125px;
+  border-color: #CBC9CF;
+}
+
+.form-text {
+  color: #CBC9CF;
+}
+
+.user-input {
+  border-bottom-color: #CBC9CF;
+}
+
+aside {
+  background-color: #2B2733;
+  border-left-color: 2px solid #46424D;
+}
