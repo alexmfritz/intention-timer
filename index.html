@@ -13,9 +13,18 @@
     <main>
       <h2 class="activity-title" id="new-activity">New Activity</h2>
       <form>
-        <label>Select a category:<br /><input type="image" name="study" src="./assets/study.svg"></label>
-
-
+        <label class="form-text" id="category">Select a category:<br />
+          <input class="activity-button" id="study" type="image" name="study" value="study" src="./assets/study.svg"/>
+          <input class="activity-button" id="meditate" type="image" name="meditate" value="meditate" src="./assets/meditate.svg"/>
+          <input class="activity-button" id="exercise" type="image" name="exercise" value="exercise" src="./assets/exercise.svg"/>
+        </label>
+        <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<br />
+          <input class="user-input" id="user-accomplish" type="text" name="accomplish"/></label>
+        <label class="form-text" id="minutes">Minutes<br />
+          <input class="user-input" id="user-minutes" type="number" name="minutes"/></label>
+        <label class="form-text" id="seconds">Seconds<br />
+          <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
+        <button id="start-activity">START ACTIVITY</button>
       </form>
     </main>
   </body>
