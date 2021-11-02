@@ -11,42 +11,44 @@
       <h1 id="page-title">INTENTION TIMER</h1>
     </header>
     <main>
-      <h2 class="activity-title" id="new-activity">New Activity</h2>
-      <section id="user-activity-input">
-        <label class="form-text" id="category">Select a category:</label>
-        <div class="button-box">
-          <div class="activity-card">
-            <button class="activity-button" id="study">
-              <img src="./assets/study.svg">
-              <p class="button-title">Study
-            </button>
+      <section class="big-box">
+        <h2 class="activity-title" id="new-activity">New Activity</h2>
+        <section id="user-activity-input">
+          <label class="form-text" id="category">Select a category:</label>
+          <div class="button-box">
+            <div class="activity-card">
+              <button class="activity-button" id="study">
+                <img src="./assets/study.svg">
+                <p class="button-title">Study
+              </button>
+            </div>
+            <div class="activity-card">
+              <button class="activity-button" id="meditate">
+                <img src="./assets/meditate.svg"/>
+                <p class="button-title">Meditate
+              </button>
+            </div>
+            <div class="activity-card">
+              <button class="activity-button" id="exercise">
+              <img src="./assets/exercise.svg">
+              <p class="button-title">Exercise
+              </button>
+            </div>
           </div>
-          <div class="activity-card">
-            <button class="activity-button" id="meditate">
-              <img src="./assets/meditate.svg"/>
-              <p class="button-title">Meditate
-            </button>
+          <div id="accomplish-box">
+            <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<p>
+            <input class="user-input" id="user-accomplish" type="text" name="accomplish"/></label>
           </div>
-          <div class="activity-card">
-            <button class="activity-button" id="exercise">
-            <img src="./assets/exercise.svg">
-            <p class="button-title">Exercise
-            </button>
+          <div id="timer-title-box">
+            <label class="form-text" id="minutes">Minutes
+            <label class="form-text" id="seconds">Seconds
           </div>
-        </div>
-        <div id="accomplish-box">
-          <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<p>
-          <input class="user-input" id="user-accomplish" type="text" name="accomplish"/></label>
-        </div>
-        <div id="timer-title-box">
-          <label class="form-text" id="minutes">Minutes
-          <label class="form-text" id="seconds">Seconds
-        </div>
-        <div class="timer-input-box">
-          <input class="user-input" id="user-minutes" type="number" name="minutes"/></label>
-          <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
-        </div>
-        <button id="start-activity">START ACTIVITY</button>
+          <div class="timer-input-box">
+            <input class="user-input" id="user-minutes" type="number" name="minutes"/></label>
+            <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
+          </div>
+          <button id="start-activity">START ACTIVITY</button>
+        </section>
       </section>
       <aside id="activity-log">
         <h2 class="activity-title" id="past-activities">Past Activities</h2>
