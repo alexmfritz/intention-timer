@@ -34,16 +34,25 @@ main {
 }
 
 #new-activity {
-  margin-top: 0;
+
 }
 
 .activity-title {
   color: #CBC9CF;
 }
 
+.big-box {
+  display: flex;
+  width: 65%;
+}
 
 #user-activity-input {
   background-color: #46424D;
+}
+
+.button-box {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .activity-button {
@@ -72,6 +81,8 @@ main {
 }
 
 aside {
+  display: flex;
+  width: 35%;
   background-color: #2B2733;
   border-left-color: 2px solid #46424D;
 }
