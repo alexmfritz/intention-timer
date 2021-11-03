@@ -54,13 +54,18 @@ header {
   box-shadow: 5px 5px 5px #26222D;
 }
 
+#category {
+  padding-top: 5%;
+  padding-left: 10.5%;
+}
+
 .button-box {
   display: flex;
   justify-content: space-evenly;
 }
 
 .form-text {
-  font-size: 20px;
+  font-size: 19px;
 }
 
 .activity-button {
