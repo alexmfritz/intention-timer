@@ -85,6 +85,15 @@ header {
   color: #FFF;
 }
 
+#accomplish-box {
+  padding-top: 4.5%;
+  padding-left: 10.5%;
+}
+
+#user-accomplish {
+  width: 77.5%;
+}
+
 .user-input {
   background: none;
   border-left: none;
