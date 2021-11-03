@@ -22,6 +22,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: #2B2733;
+  overflow: hidden;
 }
 
 header {
@@ -36,6 +37,14 @@ header {
 
 .activity-title {
   color: #CBC9CF;
+}
+
+#new-activity {
+  margin-left: 38px;
+}
+
+#past-activities {
+  margin-left: 32px;
 }
 
 .big-box {
@@ -54,13 +63,23 @@ header {
   box-shadow: 5px 5px 5px #26222D;
 }
 
+#category {
+  padding-top: 5%;
+  padding-left: 10.5%;
+}
+
 .button-box {
   display: flex;
   justify-content: space-evenly;
 }
 
 .form-text {
-  font-size: 20px;
+  font-size: 19px;
+}
+
+.button-title {
+  font-size: 16px;
+  margin-top: 3px;
 }
 
 .activity-button {
@@ -72,12 +91,33 @@ header {
 
 .activity-button > img {
   margin-top: 10px;
-  height: 20px;
+  height: 25px;
   width: 150px;
 }
 
 .form-text {
   color: #FFF;
+}
+
+#accomplish-box {
+  padding-top: 4.5%;
+  padding-left: 10.5%;
+}
+
+#user-accomplish {
+  width: 87.5%;
+}
+
+#timer-title-box {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4.5%;
+  padding-left: 10.5%;
+  margin-bottom: -17px;
+}
+
+#seconds {
+  margin-right: 37.5%;
 }
 
 .user-input {
@@ -86,6 +126,44 @@ header {
   border-right: none;
   border-top: none;
   border-bottom-color: 5px solid #CBC9CF;
+}
+
+.timer-input-box {
+  display: flex;
+  justify-content: space-around;
+  padding-top: -20%;
+}
+
+.input-minutes-line {
+  padding-right: 11%;
+  padding-left: 1.5%;
+}
+
+.input-seconds-line {
+  padding-right: 16%;
+}
+
+#user-minutes {
+  width: 180%;
+}
+
+#user-seconds {
+  width: 180%;
+}
+
+#start-activity {
+  background-color: #FFF;
+  border-radius: 4px;
+  border: none;
+  height: 40px;
+  width: 190px;
+  padding-left: 7px;
+  padding-right: 7px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 92px;
+  font-size: 17px;
+  color: #46424D;
 }
 
 aside {

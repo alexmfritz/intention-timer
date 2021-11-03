@@ -8,13 +8,13 @@
   </head>
   <body>
     <header>
-      <h1 id="page-title">INTENTION TIMER</h1>
+      <h2 id="page-title">INTENTION TIMER</h2>
     </header>
     <main>
       <section class="big-box">
         <h2 class="activity-title" id="new-activity">New Activity</h2>
         <section id="user-activity-input">
-          <label class="form-text" id="category">Select a category:</label>
+          <p class="form-text" id="category">Select a category:</p>
           <div class="button-box">
             <div class="activity-card">
               <button class="activity-button" id="study">
@@ -36,18 +36,24 @@
             </div>
           </div>
           <div id="accomplish-box">
-            <label class="form-text" id="what-accomplish">What would you like to accomplish during this time?<p>
-            <input class="user-input" id="user-accomplish" type="text" name="accomplish"/></label>
+            <p class="form-text" id="what-accomplish">What would you like to accomplish during this time?</p>
+            <p><input class="user-input" id="user-accomplish" type="text" name="accomplish"/></p>
           </div>
           <div id="timer-title-box">
-            <label class="form-text" id="minutes">Minutes
-            <label class="form-text" id="seconds">Seconds
+            <p class="form-text" id="minutes">Minutes</p>
+            <p class="form-text" id="seconds">Seconds</p>
           </div>
           <div class="timer-input-box">
-            <input class="user-input" id="user-minutes" type="number" name="minutes"/></label>
-            <input class="user-input" id="user-seconds" type="number" name="seconds"/></label>
+            <p class="input-minutes-line">
+              <input class="user-input" id="user-minutes" type="number" name="minutes"/>
+            </p>
+            <p class="input-seconds-line">
+              <input class="user-input" id="user-seconds" type="number" name="seconds"/>
+            </p>
           </div>
-          <button id="start-activity">START ACTIVITY</button>
+          <div class="activity-button-box">
+            <button id="start-activity">START ACTIVITY</button>
+          </div>
         </section>
       </section>
       <aside id="activity-log">
