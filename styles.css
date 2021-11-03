@@ -14,8 +14,13 @@ font-family: 'Montserrat', sans-serif; */
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   margin: 0;
+  min-height: 100vh;
   background-color: #2B2733;
 }
 
@@ -29,30 +34,33 @@ header {
   color: #FFF;
 }
 
-main {
-  height: 100%;
-}
-
-#new-activity {
-
-}
-
 .activity-title {
   color: #CBC9CF;
 }
 
 .big-box {
   float: left;
-  width: 62.5%;
+  min-height: 100vh;
+  width: 65%;
+  border-right: 3px solid #46424D;
 }
 
 #user-activity-input {
+  margin-left: 37px;
+  height: 75.5vh;
+  width: 92.5%;
   background-color: #46424D;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #26222D;
 }
 
 .button-box {
   display: flex;
   justify-content: space-evenly;
+}
+
+.form-text {
+  font-size: 20px;
 }
 
 .activity-button {
@@ -80,18 +88,23 @@ main {
   border-bottom-color: 5px solid #CBC9CF;
 }
 
-#break {
-  float: left;
-  width: 5%;
-  background-color: red;
-}
-
 aside {
   float: left;
-  width: 32.5%;
+  width: 34%;
+  height: 100vh;
   background-color: #2B2733;
 }
 
-#no-logged-activities {
+.no-logged-activities {
+  font-size: 16px;
+  text-align: center;
   color: #CBC9CF;
+}
+
+.activity-title {
+  margin-left: 2.5%;
+}
+
+#first-logged-para {
+  margin-top: 10%;
 }
