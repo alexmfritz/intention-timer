@@ -91,7 +91,19 @@ header {
 }
 
 #user-accomplish {
-  width: 77.5%;
+  width: 87.5%;
+}
+
+#timer-title-box {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4.5%;
+  padding-left: 10.5%;
+  margin-bottom: -17px;
+}
+
+#seconds {
+  margin-right: 37.5%;
 }
 
 .user-input {
@@ -100,6 +112,29 @@ header {
   border-right: none;
   border-top: none;
   border-bottom-color: 5px solid #CBC9CF;
+}
+
+.timer-input-box {
+  display: flex;
+  justify-content: space-around;
+  padding-top: -20%;
+}
+
+.input-minutes-line {
+  padding-right: 11%;
+  padding-left: 1.5%;
+}
+
+.input-seconds-line {
+  padding-right: 16%;
+}
+
+#user-minutes {
+  width: 180%;
+}
+
+#user-seconds {
+  width: 180%;
 }
 
 aside {
