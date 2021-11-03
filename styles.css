@@ -36,7 +36,7 @@ header {
 }
 
 .activity-title {
-  color: #CBC9CF;
+  color: #FFF;
 }
 
 #new-activity {
@@ -47,7 +47,7 @@ header {
   margin-left: 32px;
 }
 
-.big-box {
+.activity-presenter {
   float: left;
   min-height: 100vh;
   width: 65%;
@@ -68,13 +68,14 @@ header {
   padding-left: 10.5%;
 }
 
-.button-box {
+.selector-box {
   display: flex;
   justify-content: space-evenly;
 }
 
-.form-text {
+.category-choices {
   font-size: 19px;
+  color: #FFF;
 }
 
 .button-title {
@@ -183,6 +184,6 @@ aside {
   margin-left: 2.5%;
 }
 
-#first-logged-para {
+#no-logged-activity {
   margin-top: 10%;
 }
