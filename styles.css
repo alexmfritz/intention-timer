@@ -39,6 +39,14 @@ header {
   color: #CBC9CF;
 }
 
+#new-activity {
+  margin-left: 38px;
+}
+
+#past-activities {
+  margin-left: 32px;
+}
+
 .big-box {
   float: left;
   min-height: 100vh;
