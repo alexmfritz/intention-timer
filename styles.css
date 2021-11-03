@@ -69,6 +69,11 @@ header {
   font-size: 19px;
 }
 
+.button-title {
+  font-size: 16px;
+  margin-top: 3px;
+}
+
 .activity-button {
   background-color: #46424D;
   border: 2px solid #FFF;
@@ -78,7 +83,7 @@ header {
 
 .activity-button > img {
   margin-top: 10px;
-  height: 20px;
+  height: 25px;
   width: 150px;
 }
 
