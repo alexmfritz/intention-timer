@@ -22,6 +22,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background-color: #2B2733;
+  overflow: hidden;
 }
 
 header {
@@ -135,6 +136,21 @@ header {
 
 #user-seconds {
   width: 180%;
+}
+
+#start-activity {
+  background-color: #FFF;
+  border-radius: 4px;
+  border: none;
+  height: 40px;
+  width: 190px;
+  padding-left: 7px;
+  padding-right: 7px;
+  float: right;
+  margin-top: 50px;
+  margin-right: 92px;
+  font-size: 17px;
+  color: #46424D;
 }
 
 aside {
