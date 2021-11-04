@@ -39,11 +39,11 @@ main {
 }
 
 #new-activity {
-  margin-left: 38px;
+  margin-left: 23px;
 }
 
 #past-activities {
-  margin-left: 32px;
+  margin-left: 23px;
 }
 
 .activity-presenter {
@@ -177,15 +177,15 @@ aside {
   display: flex;
   flex-direction: column;
   width: 34.5%;
-  align-items: stretch;
-  /* height: 100vh; */
   background-color: #2B2733;
+  height: 100vh;
 }
 
 .no-logged-activities {
   font-size: 16px;
   text-align: center;
   color: #CBC9CF;
+  margin-bottom: 0;
 }
 
 .activity-title {
@@ -193,5 +193,5 @@ aside {
 }
 
 #no-logged-activity {
-  margin-top: 10%;
+  margin-top: 6%;
 }
