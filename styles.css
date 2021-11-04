@@ -14,13 +14,8 @@ font-family: 'Montserrat', sans-serif; */
   font-family: 'Montserrat', sans-serif;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   margin: 0;
-  min-height: 100vh;
   background-color: #2B2733;
   overflow: hidden;
 }
@@ -35,29 +30,35 @@ header {
   color: #FFF;
 }
 
+main {
+  display: flex;
+}
+
 .activity-title {
-  color: #CBC9CF;
+  color: #FFF;
 }
 
 #new-activity {
-  margin-left: 38px;
+  margin-left: 23px;
 }
 
 #past-activities {
-  margin-left: 32px;
+  margin-left: 23px;
 }
 
-.big-box {
-  float: left;
-  min-height: 100vh;
+.activity-presenter {
+  display: flex;
+  flex-direction: column;
   width: 65%;
   border-right: 3px solid #46424D;
 }
 
 #user-activity-input {
-  margin-left: 37px;
-  height: 75.5vh;
-  width: 92.5%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  height: 78.5%;
+  width: 95%;
   background-color: #46424D;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #26222D;
@@ -68,13 +69,14 @@ header {
   padding-left: 10.5%;
 }
 
-.button-box {
+.selector-box {
   display: flex;
   justify-content: space-evenly;
 }
 
-.form-text {
+.category-choices {
   font-size: 19px;
+  color: #FFF;
 }
 
 .button-title {
@@ -151,6 +153,11 @@ header {
   width: 180%;
 }
 
+.activity-button-box {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
 #start-activity {
   background-color: #FFF;
   border-radius: 4px;
@@ -160,29 +167,31 @@ header {
   padding-left: 7px;
   padding-right: 7px;
   float: right;
-  margin-top: 50px;
+  margin-top: 40px;
   margin-right: 92px;
   font-size: 17px;
   color: #46424D;
 }
 
 aside {
-  float: left;
-  width: 34%;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 34.5%;
   background-color: #2B2733;
+  height: 100vh;
 }
 
 .no-logged-activities {
   font-size: 16px;
   text-align: center;
   color: #CBC9CF;
+  margin-bottom: 0;
 }
 
 .activity-title {
   margin-left: 2.5%;
 }
 
-#first-logged-para {
-  margin-top: 10%;
+#no-logged-activity {
+  margin-top: 6%;
 }
