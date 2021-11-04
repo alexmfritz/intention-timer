@@ -89,6 +89,7 @@ main {
   border: 2px solid #FFF;
   color: #FFF;
   border-radius: 4px;
+  margin-bottom: 18px;
 }
 
 .activity-button > img {
@@ -102,7 +103,6 @@ main {
 }
 
 #accomplish-box {
-  padding-top: 4.5%;
   padding-left: 10.5%;
 }
 
@@ -113,9 +113,7 @@ main {
 #timer-title-box {
   display: flex;
   justify-content: space-between;
-  padding-top: 4.5%;
   padding-left: 10.5%;
-  margin-bottom: -17px;
 }
 
 #seconds {
@@ -167,7 +165,7 @@ main {
   padding-left: 7px;
   padding-right: 7px;
   float: right;
-  margin-top: 40px;
+  margin-top: 30px;
   margin-right: 92px;
   font-size: 17px;
   color: #46424D;
@@ -209,4 +207,31 @@ aside {
 .exerciseClick {
   border-color: #FD8078;
   color: #FD8078;
+}
+
+.selection-error-box {
+  margin-top: -15px;
+  margin-left: 88px;
+}
+
+.minutes-seconds {
+  display: flex;
+  flex-direction: row;
+}
+
+#seconds-error {
+  margin-left: 200px;
+}
+
+.error-message {
+  color: #EFB7EC;
+}
+
+.error-message > .triangle {
+  height: 15px;
+  width: 40px;
+}
+
+.visibility {
+  visibility: hidden;
 }
