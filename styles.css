@@ -53,7 +53,8 @@ main {
   border-right: 3px solid #46424D;
 }
 
-#user-activity-input {
+.timer-presenter,
+.user-activity-input {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
@@ -62,6 +63,25 @@ main {
   background-color: #46424D;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #26222D;
+}
+
+.chosen-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5%;
+}
+
+.chosen-activity {
+  color: #FFF;
+  font-size: 20px;
+}
+
+.start-time {
+  margin-top: 0;
+  color: #FFF;
+  font-size: 100px;
+  font-weight: 400;
 }
 
 #category {
@@ -230,6 +250,10 @@ aside {
 .error-message > .triangle {
   height: 15px;
   width: 40px;
+}
+
+.hidden {
+  display: none;
 }
 
 .visibility {
