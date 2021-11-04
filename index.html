@@ -17,32 +17,32 @@
           <p class="category-choices" id="category">Select a category:</p>
           <div class="selector-box">
             <div class="activity-card">
-              <button class="activity-button" id="study">
+              <button class="activity-button study">
                 <img src="./assets/study.svg">
                 <p class="button-title">Study
               </button>
             </div>
             <div class="activity-card">
-              <button class="activity-button" id="meditate">
+              <button class="activity-button meditate">
                 <img src="./assets/meditate.svg"/>
                 <p class="button-title">Meditate
               </button>
             </div>
             <div class="activity-card">
-              <button class="activity-button" id="exercise">
+              <button class="activity-button exercise">
               <img src="./assets/exercise.svg">
               <p class="button-title">Exercise
               </button>
             </div>
           </div>
-          <div class="selection-error-box visibility">
+          <div class="selection-error-box selection visibility">
             <p class="error-message" id="selection-error"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A category is required.</p>
           </div>
           <div id="accomplish-box">
             <p class="category-choices" id="what-accomplish">What would you like to accomplish during this time?</p>
             <p><input class="user-input" id="user-accomplish" type="text" name="accomplish"/></p>
           </div>
-          <div class="selection-error-box visibility">
+          <div class="selection-error-box accomplish visibility">
             <p class="error-message" id="accomplish-error"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A description is required.</p>
           </div>
           <div id="timer-title-box">
@@ -58,8 +58,8 @@
             </p>
           </div>
           <div class="selection-error-box minutes-seconds">
-            <p class="error-message visibility" id="minutes-error"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Minutes are required.</p>
-            <p class="error-message visibility" id="seconds-error"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Seconds are required.</p>
+            <p class="error-message minutes visibility" id="minutes-error"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Minutes are required.</p>
+            <p class="error-message seconds visibility" id="seconds-error"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Seconds are required.</p>
           </div>
           <div class="activity-button-box">
             <button id="start-activity">START ACTIVITY</button>
