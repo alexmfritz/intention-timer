@@ -195,3 +195,18 @@ aside {
 #no-logged-activity {
   margin-top: 6%;
 }
+
+.studyClick {
+  border-color: #B3FD78;
+  color: #B3FD78;
+}
+
+.meditateClick {
+  border-color: #C278FD;
+  color: #C278FD;
+}
+
+.exerciseClick {
+  border-color: #FD8078;
+  color: #FD8078;
+}
