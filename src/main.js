@@ -1,6 +1,10 @@
 var activityPresenter = document.querySelector('.activity-presenter');
 var activityTitle = document.querySelector('#new-activity');
 var selectorBox = document.querySelector('.selector-box');
+//images
+var studyImage = document.querySelector('.study-image');
+var meditateImage = document.querySelector('.meditate-image');
+var exerciseImage = document.querySelector('.exercise-image');
 //buttons
 var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
@@ -21,8 +25,22 @@ var secondsError = document.querySelector('.seconds');
 //event listeners
 
 startActivityButton.addEventListener('click', showTimer);
+studyButton.addEventListener('click', highlightStudy);
+meditateButton.addEventListener('click', highlightMeditate);
+exerciseButton.addEventListener('click', highlightExercise);
 
 //functions
+function highlightStudy() {
+  highlight(studyButton, studyImage, "studyClick", "study");
+};
+
+function highlightMeditate() {
+  highlight(meditateButton, meditateImage, "meditateClick", "meditate");
+};
+
+function highlightExercise() {
+  highlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+};
 
 function showTimer(element) {
   show(timerView);
@@ -32,6 +50,16 @@ function showTimer(element) {
 
 function changeActivityTitle() {
   activityTitle.innerText = 'Current Activity';
+};
+
+function highlight(element, element2, rule, icon) {
+  if (element.classList.contains(rule)) {
+    element2.src = `./assets/${icon}.svg`;
+    element.classList.remove(rule);
+  } else {
+    element2.src = `./assets/${icon}-active.svg`
+    element.classList.add(rule);
+  }
 };
 
 function show(element) {
