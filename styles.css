@@ -11,6 +11,7 @@ Error: #EFB7EC
 font-family: 'Montserrat', sans-serif; */
 
 * {
+  font-family: 'Arimo', sans-serif;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -74,14 +75,35 @@ main {
 
 .chosen-activity {
   color: #FFF;
-  font-size: 20px;
+  font-size: 26px;
+  font-weight: lighter;
+  margin-bottom: 0;
 }
+
+.start {
+  font-size: 26px;
+  color: #FFF;
+}
+
 
 .start-time {
   margin-top: 0;
+  margin-bottom: 30px;
   color: #FFF;
   font-size: 100px;
-  font-weight: 400;
+  font-weight: black;
+  font-family: 'Arimo';
+}
+
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  height: 275px;
+  width: 275px;
+  border: 3px solid #C278FD;
+  background: #46424D;
 }
 
 #category {
