@@ -19,6 +19,7 @@ var userSecondsInput = document.querySelector('#user-seconds');
 //timer
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
+var circle = document.querySelector('.circle');
 //errors
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
@@ -77,6 +78,7 @@ function showTimer() {
   hide(userActivityInputView);
   changeActivityTitle();
   displayUserInput();
+  changeCircleColor(circle);
 };
 
 function changeActivityTitle() {
@@ -150,6 +152,16 @@ function displayUserInput() {
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
   chosenActivityDisplay.innerText = `${currentActivity.description}`;
 }
+
+function changeCircleColor(element) {
+  if (currentActivity.category === "Study") {
+    element.classList.add('green');
+  } else if (currentActivity.category === "Meditate") {
+    element.classList.add('purple');
+  } else if (currentActivity.category === "Exercise") {
+    element.classList.add('red');
+  }
+};
 
 function show(element) {
   element.classList.remove('hidden');
