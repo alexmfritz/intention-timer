@@ -89,7 +89,7 @@ function highlight(element, element2, rule, icon) {
   };
 };
 
-function validateAccopmlish() {
+function validateAccomplish() {
   if (userAccomplishInput.value === '') {
     visible(accomplishError);
   };
@@ -108,9 +108,11 @@ function validatedSeconds() {
 };
 
 function startActivity() {
-  validateAccopmlish();
+  validateAccomplish();
   validateMinutes();
   validatedSeconds();
+  createActivity();
+  // showTimer();
 };
 
 
@@ -120,7 +122,7 @@ function unhighlight(element, element2, rule, icon) {
 };
 
 function createActivity() {
-  currentActivity = new Activity()
+  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value);
 }
 
 
