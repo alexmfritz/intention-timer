@@ -27,8 +27,12 @@ var selectedCategory= "";
 var meditateIds = ["meditate", "meditateImg", "meditateText"];
 var exerciseIds = ["exercise", "exerciseImg", "exerciseText"];
 var studyIds = ["study", "studyImg", "studyText"];
-//event listeners
 
+//event listeners
+startActivityButton.addEventListener('click', startActivity);
+studyButton.addEventListener('click', highlightStudy);
+meditateButton.addEventListener('click', highlightMeditate);
+exerciseButton.addEventListener('click', highlightExercise);
 userMinutesInput.addEventListener('keydown', function(event) {
   if(keyErrors.includes(event.key)) {
     event.preventDefault();
@@ -39,10 +43,6 @@ userSecondsInput.addEventListener('keydown', function(event) {
     event.preventDefault();
   }
 });
-startActivityButton.addEventListener('click', startActivity);
-studyButton.addEventListener('click', highlightStudy);
-meditateButton.addEventListener('click', highlightMeditate);
-exerciseButton.addEventListener('click', highlightExercise);
 selectorBox.addEventListener('click', function (event) {
   checkCategory(event, meditateIds, "Meditate")
   checkCategory(event, exerciseIds, "Exercise")
@@ -120,8 +120,7 @@ function showErrorMessages() {
   validateAccomplish();
   validateMinutes();
   validatedSeconds();
-  }
-
+};
 
 function unhighlight(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
@@ -130,8 +129,8 @@ function unhighlight(element, element2, rule, icon) {
 
 function createActivity() {
   currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value);
-}
-
+  savedActivities.push(currentActivity);
+};
 
 function checkCategory(event, category, activity) {
   for (var i = 0; i < category.length; i++) {
@@ -139,15 +138,7 @@ function checkCategory(event, category, activity) {
       selectedCategory = activity;
     }
   }
-}
-
-//for loop over the different ids, if studies.includes
-
-//have a function that checks the event target id
-//reassign category to be a string of
-//if study is clicked (event.target.id) is equal to one of those buttons, it will change goes in a variable
-//then we reference.
-
+};
 
 function show(element) {
   element.classList.remove('hidden');
