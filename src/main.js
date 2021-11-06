@@ -17,7 +17,6 @@ var userAccomplishInput = document.querySelector('#user-accomplish');
 var userMinutesInput = document.querySelector('#user-minutes');
 var userSecondsInput = document.querySelector('#user-seconds');
 //errors
-var selectionError = document.querySelector('.selection');
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
@@ -30,14 +29,12 @@ userMinutesInput.addEventListener('keydown', function(event) {
     event.preventDefault();
   }
 });
-
 userSecondsInput.addEventListener('keydown', function(event) {
   if(keyErrors.includes(event.key)) {
     event.preventDefault();
   }
 });
-
-startActivityButton.addEventListener('click', showTimer);
+startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightStudy);
 meditateButton.addEventListener('click', highlightMeditate);
 exerciseButton.addEventListener('click', highlightExercise);
@@ -49,8 +46,6 @@ function highlightStudy() {
   unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
 };
 
-//when one button is clicked
-//the other buttons have to not be able to be clicked
 function highlightMeditate() {
   highlight(meditateButton, meditateImage, "meditateClick", "meditate");
   unhighlight(studyButton, studyImage, "studyClick", "study");
@@ -63,7 +58,7 @@ function highlightExercise() {
   unhighlight(studyButton, studyImage, "studyClick", "study");
 };
 
-function showTimer(element) {
+function showTimer() {
   show(timerView);
   hide(userActivityInputView);
   changeActivityTitle();
@@ -80,28 +75,38 @@ function highlight(element, element2, rule, icon) {
   } else {
     element2.src = `./assets/${icon}-active.svg`
     element.classList.add(rule);
-  }
+  };
 };
+
+function validateAccopmlish() {
+  if (userAccomplishInput.value === '') {
+    visible(accomplishError);
+  };
+};
+
+function validateMinutes() {
+  if (userMinutesInput.value === '') {
+    visible(minutesError);
+  };
+};
+
+function validatedSeconds() {
+  if (userSecondsInput.value === '') {
+    visible(secondsError);
+  };
+};
+
+function startActivity() {
+  validateAccopmlish();
+  validateMinutes();
+  validatedSeconds();
+};
+
 
 function unhighlight(element, element2, rule, icon) {
-  if (!element.classList.contains(rule)) {
-    element2.src = `./assets/${icon}.svg`;
-    element.classList.remove(rule);
-  } else {
-    element2.src = `./assets/${icon}.svg`
-    element.classList.remove(rule);
-  }
+  element2.src = `./assets/${icon}.svg`;
+  element.classList.remove(rule);
 };
-
-// function preventKeyInput(event) {
-//   if (keyErrors.includes(event.key)) {
-//     event.preventDefault();
-//   }
-// }
-
-// function numbersErrorMessage() {
-//   visible(minutesError);
-// }
 
 
 function show(element) {
