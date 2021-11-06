@@ -16,6 +16,9 @@ var userActivityInputView = document.querySelector('.user-activity-input');
 var userAccomplishInput = document.querySelector('#user-accomplish');
 var userMinutesInput = document.querySelector('#user-minutes');
 var userSecondsInput = document.querySelector('#user-seconds');
+//timer
+var timerDisplay = document.querySelector('.start-time');
+var chosenActivityDisplay = document.querySelector('.chosen-activity');
 //errors
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
@@ -73,6 +76,7 @@ function showTimer() {
   show(timerView);
   hide(userActivityInputView);
   changeActivityTitle();
+  displayUserInput();
 };
 
 function changeActivityTitle() {
@@ -139,6 +143,13 @@ function checkCategory(event, category, activity) {
     }
   }
 };
+
+function displayUserInput() {
+  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, "0");
+  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, "0");
+  timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
+  chosenActivityDisplay.innerText = `${currentActivity.description}`;
+}
 
 function show(element) {
   element.classList.remove('hidden');
