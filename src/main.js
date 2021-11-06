@@ -108,12 +108,19 @@ function validatedSeconds() {
 };
 
 function startActivity() {
+  if (userAccomplishInput.value !== "" && userMinutesInput.value !== "" && userSecondsInput.value !== "") {
+    createActivity();
+    showTimer();
+  } else {
+    showErrorMessages();
+  }
+};
+
+function showErrorMessages() {
   validateAccomplish();
   validateMinutes();
   validatedSeconds();
-  createActivity();
-  // showTimer();
-};
+  }
 
 
 function unhighlight(element, element2, rule, icon) {
