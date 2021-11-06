@@ -14,15 +14,28 @@ var timerView = document.querySelector('.timer-presenter');
 var userActivityInputView = document.querySelector('.user-activity-input');
 //inputs
 var userAccomplishInput = document.querySelector('#user-accomplish');
-var userMinutesInput = document.querySelector('#minutes');
-var userSecondsInput = document.querySelector('#seconds');
+var userMinutesInput = document.querySelector('#user-minutes');
+var userSecondsInput = document.querySelector('#user-seconds');
 //errors
 var selectionError = document.querySelector('.selection');
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
+var keyErrors = ['-', '+', 'e', 'E', '.'];
 
 //event listeners
+
+userMinutesInput.addEventListener('keydown', function(event) {
+  if(keyErrors.includes(event.key)) {
+    event.preventDefault();
+  }
+});
+
+userSecondsInput.addEventListener('keydown', function(event) {
+  if(keyErrors.includes(event.key)) {
+    event.preventDefault();
+  }
+});
 
 startActivityButton.addEventListener('click', showTimer);
 studyButton.addEventListener('click', highlightStudy);
@@ -61,6 +74,17 @@ function highlight(element, element2, rule, icon) {
     element.classList.add(rule);
   }
 };
+
+// function preventKeyInput(event) {
+//   if (keyErrors.includes(event.key)) {
+//     event.preventDefault();
+//   }
+// }
+
+// function numbersErrorMessage() {
+//   visible(minutesError);
+// }
+
 
 function show(element) {
   element.classList.remove('hidden');
