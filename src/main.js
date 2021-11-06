@@ -16,6 +16,10 @@ var userActivityInputView = document.querySelector('.user-activity-input');
 var userAccomplishInput = document.querySelector('#user-accomplish');
 var userMinutesInput = document.querySelector('#user-minutes');
 var userSecondsInput = document.querySelector('#user-seconds');
+//timer
+var timerDisplay = document.querySelector('.start-time');
+var chosenActivityDisplay = document.querySelector('.chosen-activity');
+var circle = document.querySelector('.circle');
 //errors
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
@@ -27,8 +31,12 @@ var selectedCategory= "";
 var meditateIds = ["meditate", "meditateImg", "meditateText"];
 var exerciseIds = ["exercise", "exerciseImg", "exerciseText"];
 var studyIds = ["study", "studyImg", "studyText"];
-//event listeners
 
+//event listeners
+startActivityButton.addEventListener('click', startActivity);
+studyButton.addEventListener('click', highlightStudy);
+meditateButton.addEventListener('click', highlightMeditate);
+exerciseButton.addEventListener('click', highlightExercise);
 userMinutesInput.addEventListener('keydown', function(event) {
   if(keyErrors.includes(event.key)) {
     event.preventDefault();
@@ -39,10 +47,6 @@ userSecondsInput.addEventListener('keydown', function(event) {
     event.preventDefault();
   }
 });
-startActivityButton.addEventListener('click', startActivity);
-studyButton.addEventListener('click', highlightStudy);
-meditateButton.addEventListener('click', highlightMeditate);
-exerciseButton.addEventListener('click', highlightExercise);
 selectorBox.addEventListener('click', function (event) {
   checkCategory(event, meditateIds, "Meditate")
   checkCategory(event, exerciseIds, "Exercise")
@@ -70,9 +74,11 @@ function highlightExercise() {
 };
 
 function showTimer() {
-  show(timerView);
-  hide(userActivityInputView);
+  show(timerView, 'hidden');
+  hide(userActivityInputView, 'hidden');
   changeActivityTitle();
+  displayUserInput();
+  changeCircleColor(circle);
 };
 
 function changeActivityTitle() {
@@ -120,8 +126,7 @@ function showErrorMessages() {
   validateAccomplish();
   validateMinutes();
   validatedSeconds();
-  }
-
+};
 
 function unhighlight(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
@@ -130,8 +135,8 @@ function unhighlight(element, element2, rule, icon) {
 
 function createActivity() {
   currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value);
-}
-
+  savedActivities.push(currentActivity);
+};
 
 function checkCategory(event, category, activity) {
   for (var i = 0; i < category.length; i++) {
@@ -139,22 +144,31 @@ function checkCategory(event, category, activity) {
       selectedCategory = activity;
     }
   }
-}
-
-//for loop over the different ids, if studies.includes
-
-//have a function that checks the event target id
-//reassign category to be a string of
-//if study is clicked (event.target.id) is equal to one of those buttons, it will change goes in a variable
-//then we reference.
-
-
-function show(element) {
-  element.classList.remove('hidden');
 };
 
-function hide(element) {
-  element.classList.add('hidden');
+function displayUserInput() {
+  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, "0");
+  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, "0");
+  timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
+  chosenActivityDisplay.innerText = `${currentActivity.description}`;
+}
+
+function changeCircleColor(element) {
+  if (currentActivity.category === "Study") {
+    hide(element, 'green');
+  } else if (currentActivity.category === "Meditate") {
+    hide(element, 'purple');
+  } else if (currentActivity.category === "Exercise") {
+    hide(element, 'red');
+  }
+};
+
+function show(element, rule) {
+  element.classList.remove(rule);
+};
+
+function hide(element, rule) {
+  element.classList.add(rule);
 };
 
 function visible(element) {
