@@ -102,8 +102,19 @@ main {
   border-radius: 50%;
   height: 275px;
   width: 275px;
-  border: 3px solid #C278FD;
   background: #46424D;
+}
+
+.purple {
+  border: 3px solid #C278FD;
+}
+
+.green {
+  border: 3px solid #B3FD78;
+}
+
+.red {
+  border: 3px solid #FD8078;
 }
 
 #category {
