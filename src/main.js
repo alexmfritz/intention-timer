@@ -1,6 +1,6 @@
 var activityPresenter = document.querySelector('.activity-presenter');
 var activityTitle = document.querySelector('#newActivity');
-var selectorBox = document.querySelector('.selector-box');
+var categoryBox = document.querySelector('.category-box');
 //images
 var studyImage = document.querySelector('.study-image');
 var meditateImage = document.querySelector('.meditate-image');
@@ -10,12 +10,13 @@ var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
 var startActivityButton = document.querySelector('#startActivity');
-var timerView = document.querySelector('.timer-presenter');
-var userActivityInputView = document.querySelector('.user-activity-input');
 //inputs
 var userAccomplishInput = document.querySelector('#userAccomplish');
 var userMinutesInput = document.querySelector('#userMinutes');
 var userSecondsInput = document.querySelector('#userSeconds');
+//views
+var timerView = document.querySelector('.timer-presenter');
+var userActivityInputView = document.querySelector('.user-activity-input');
 //timer
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
@@ -25,12 +26,14 @@ var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
 var keyErrors = ['-', '+', 'e', 'E', '.'];
-var currentActivity = {};
+//arrays
 var savedActivities = [];
-var selectedCategory= "";
 var meditateIds = ["meditate", "meditateImg", "meditateText"];
 var exerciseIds = ["exercise", "exerciseImg", "exerciseText"];
 var studyIds = ["study", "studyImg", "studyText"];
+var selectedCategory= "";
+
+var currentActivity = {};
 
 //event listeners
 startActivityButton.addEventListener('click', startActivity);
@@ -47,7 +50,7 @@ userSecondsInput.addEventListener('keydown', function(event) {
     event.preventDefault();
   }
 });
-selectorBox.addEventListener('click', function (event) {
+categoryBox.addEventListener('click', function (event) {
   checkCategory(event, meditateIds, "Meditate")
   checkCategory(event, exerciseIds, "Exercise")
   checkCategory(event, studyIds, "Study")
