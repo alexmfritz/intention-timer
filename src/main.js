@@ -1,6 +1,6 @@
 var activityPresenter = document.querySelector('.activity-presenter');
-var activityTitle = document.querySelector('#new-activity');
-var selectorBox = document.querySelector('.selector-box');
+var activityTitle = document.querySelector('#newActivity');
+var categoryBox = document.querySelector('.category-box');
 //images
 var studyImage = document.querySelector('.study-image');
 var meditateImage = document.querySelector('.meditate-image');
@@ -9,13 +9,14 @@ var exerciseImage = document.querySelector('.exercise-image');
 var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
-var startActivityButton = document.querySelector('#start-activity');
+var startActivityButton = document.querySelector('#startActivity');
+//inputs
+var userAccomplishInput = document.querySelector('#userAccomplish');
+var userMinutesInput = document.querySelector('#userMinutes');
+var userSecondsInput = document.querySelector('#userSeconds');
+//views
 var timerView = document.querySelector('.timer-presenter');
 var userActivityInputView = document.querySelector('.user-activity-input');
-//inputs
-var userAccomplishInput = document.querySelector('#user-accomplish');
-var userMinutesInput = document.querySelector('#user-minutes');
-var userSecondsInput = document.querySelector('#user-seconds');
 //timer
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
@@ -25,12 +26,14 @@ var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
 var keyErrors = ['-', '+', 'e', 'E', '.'];
-var currentActivity = {};
+//arrays
 var savedActivities = [];
-var selectedCategory= "";
 var meditateIds = ["meditate", "meditateImg", "meditateText"];
 var exerciseIds = ["exercise", "exerciseImg", "exerciseText"];
 var studyIds = ["study", "studyImg", "studyText"];
+var selectedCategory= "";
+
+var currentActivity = {};
 
 //event listeners
 startActivityButton.addEventListener('click', startActivity);
@@ -47,7 +50,7 @@ userSecondsInput.addEventListener('keydown', function(event) {
     event.preventDefault();
   }
 });
-selectorBox.addEventListener('click', function (event) {
+categoryBox.addEventListener('click', function (event) {
   checkCategory(event, meditateIds, "Meditate")
   checkCategory(event, exerciseIds, "Exercise")
   checkCategory(event, studyIds, "Study")
@@ -56,21 +59,21 @@ selectorBox.addEventListener('click', function (event) {
 
 //functions
 function highlightStudy() {
-  highlight(studyButton, studyImage, "studyClick", "study");
-  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
-  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+  highlight(studyButton, studyImage, "study-click", "study");
+  unhighlight(meditateButton, meditateImage, "meditate-click", "meditate");
+  unhighlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
 };
 
 function highlightMeditate() {
-  highlight(meditateButton, meditateImage, "meditateClick", "meditate");
-  unhighlight(studyButton, studyImage, "studyClick", "study");
-  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+  highlight(meditateButton, meditateImage, "meditate-click", "meditate");
+  unhighlight(studyButton, studyImage, "study-click", "study");
+  unhighlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
 };
 
 function highlightExercise() {
-  highlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
-  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
-  unhighlight(studyButton, studyImage, "studyClick", "study");
+  highlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
+  unhighlight(meditateButton, meditateImage, "meditate-click", "meditate");
+  unhighlight(studyButton, studyImage, "study-click", "study");
 };
 
 function showTimer() {
