@@ -135,6 +135,7 @@ main {
 }
 
 .activity-button > img {
+  display: inherit;
   margin-top: 10px;
   height: 25px;
   width: 150px;

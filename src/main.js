@@ -45,14 +45,22 @@ exerciseButton.addEventListener('click', highlightExercise);
 //functions
 function highlightStudy() {
   highlight(studyButton, studyImage, "studyClick", "study");
+  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
+  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
 };
 
+//when one button is clicked
+//the other buttons have to not be able to be clicked
 function highlightMeditate() {
   highlight(meditateButton, meditateImage, "meditateClick", "meditate");
+  unhighlight(studyButton, studyImage, "studyClick", "study");
+  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
 };
 
 function highlightExercise() {
   highlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
+  unhighlight(studyButton, studyImage, "studyClick", "study");
 };
 
 function showTimer(element) {
@@ -72,6 +80,16 @@ function highlight(element, element2, rule, icon) {
   } else {
     element2.src = `./assets/${icon}-active.svg`
     element.classList.add(rule);
+  }
+};
+
+function unhighlight(element, element2, rule, icon) {
+  if (!element.classList.contains(rule)) {
+    element2.src = `./assets/${icon}.svg`;
+    element.classList.remove(rule);
+  } else {
+    element2.src = `./assets/${icon}.svg`
+    element.classList.remove(rule);
   }
 };
 
