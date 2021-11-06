@@ -1,5 +1,5 @@
 var activityPresenter = document.querySelector('.activity-presenter');
-var activityTitle = document.querySelector('#new-activity');
+var activityTitle = document.querySelector('#newActivity');
 var selectorBox = document.querySelector('.selector-box');
 //images
 var studyImage = document.querySelector('.study-image');
@@ -9,13 +9,13 @@ var exerciseImage = document.querySelector('.exercise-image');
 var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
-var startActivityButton = document.querySelector('#start-activity');
+var startActivityButton = document.querySelector('#startActivity');
 var timerView = document.querySelector('.timer-presenter');
 var userActivityInputView = document.querySelector('.user-activity-input');
 //inputs
-var userAccomplishInput = document.querySelector('#user-accomplish');
-var userMinutesInput = document.querySelector('#user-minutes');
-var userSecondsInput = document.querySelector('#user-seconds');
+var userAccomplishInput = document.querySelector('#userAccomplish');
+var userMinutesInput = document.querySelector('#userMinutes');
+var userSecondsInput = document.querySelector('#userSeconds');
 //timer
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
@@ -56,21 +56,21 @@ selectorBox.addEventListener('click', function (event) {
 
 //functions
 function highlightStudy() {
-  highlight(studyButton, studyImage, "studyClick", "study");
-  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
-  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+  highlight(studyButton, studyImage, "study-click", "study");
+  unhighlight(meditateButton, meditateImage, "meditate-click", "meditate");
+  unhighlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
 };
 
 function highlightMeditate() {
-  highlight(meditateButton, meditateImage, "meditateClick", "meditate");
-  unhighlight(studyButton, studyImage, "studyClick", "study");
-  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+  highlight(meditateButton, meditateImage, "meditate-click", "meditate");
+  unhighlight(studyButton, studyImage, "study-click", "study");
+  unhighlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
 };
 
 function highlightExercise() {
-  highlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
-  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
-  unhighlight(studyButton, studyImage, "studyClick", "study");
+  highlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
+  unhighlight(meditateButton, meditateImage, "meditate-click", "meditate");
+  unhighlight(studyButton, studyImage, "study-click", "study");
 };
 
 function showTimer() {

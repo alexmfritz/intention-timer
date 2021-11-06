@@ -27,7 +27,7 @@ header {
   background-color: #46424D;
 }
 
-#page-title {
+#pageTitle {
   color: #FFF;
 }
 
@@ -39,11 +39,11 @@ main {
   color: #FFF;
 }
 
-#new-activity {
+#newActivity {
   margin-left: 23px;
 }
 
-#past-activities {
+#pastActivities {
   margin-left: 23px;
 }
 
@@ -156,15 +156,15 @@ main {
   color: #FFF;
 }
 
-#accomplish-box {
+#accomplishBox {
   padding-left: 10.5%;
 }
 
-#user-accomplish {
+#userAccomplish {
   width: 87.5%;
 }
 
-#timer-title-box {
+#timerTitleBox {
   display: flex;
   justify-content: space-between;
   padding-left: 10.5%;
@@ -197,11 +197,11 @@ main {
   padding-right: 16%;
 }
 
-#user-minutes {
+#userMinutes {
   width: 180%;
 }
 
-#user-seconds {
+#userSeconds {
   width: 180%;
 }
 
@@ -210,7 +210,7 @@ main {
   flex-direction: row-reverse;
 }
 
-#start-activity {
+#startActivity {
   background-color: #FFF;
   border-radius: 4px;
   border: none;
@@ -244,21 +244,21 @@ aside {
   margin-left: 2.5%;
 }
 
-#no-logged-activity {
+#noLoggedActivity {
   margin-top: 6%;
 }
 
-.studyClick {
+.study-click {
   border-color: #B3FD78;
   color: #B3FD78;
 }
 
-.meditateClick {
+.meditate-click {
   border-color: #C278FD;
   color: #C278FD;
 }
 
-.exerciseClick {
+.exercise-click {
   border-color: #FD8078;
   color: #FD8078;
 }
@@ -273,7 +273,7 @@ aside {
   flex-direction: row;
 }
 
-#seconds-error {
+#secondsError {
   margin-left: 200px;
 }
 
