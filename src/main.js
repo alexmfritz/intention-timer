@@ -74,8 +74,8 @@ function highlightExercise() {
 };
 
 function showTimer() {
-  show(timerView);
-  hide(userActivityInputView);
+  show(timerView, 'hidden');
+  hide(userActivityInputView, 'hidden');
   changeActivityTitle();
   displayUserInput();
   changeCircleColor(circle);
@@ -155,20 +155,20 @@ function displayUserInput() {
 
 function changeCircleColor(element) {
   if (currentActivity.category === "Study") {
-    element.classList.add('green');
+    hide(element, 'green');
   } else if (currentActivity.category === "Meditate") {
-    element.classList.add('purple');
+    hide(element, 'purple');
   } else if (currentActivity.category === "Exercise") {
-    element.classList.add('red');
+    hide(element, 'red');
   }
 };
 
-function show(element) {
-  element.classList.remove('hidden');
+function show(element, rule) {
+  element.classList.remove(rule);
 };
 
-function hide(element) {
-  element.classList.add('hidden');
+function hide(element, rule) {
+  element.classList.add(rule);
 };
 
 function visible(element) {
