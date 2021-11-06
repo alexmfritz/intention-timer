@@ -14,15 +14,28 @@ var timerView = document.querySelector('.timer-presenter');
 var userActivityInputView = document.querySelector('.user-activity-input');
 //inputs
 var userAccomplishInput = document.querySelector('#user-accomplish');
-var userMinutesInput = document.querySelector('#minutes');
-var userSecondsInput = document.querySelector('#seconds');
+var userMinutesInput = document.querySelector('#user-minutes');
+var userSecondsInput = document.querySelector('#user-seconds');
 //errors
 var selectionError = document.querySelector('.selection');
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
+var keyErrors = ['-', '+', 'e', 'E', '.'];
 
 //event listeners
+
+userMinutesInput.addEventListener('keydown', function(event) {
+  if(keyErrors.includes(event.key)) {
+    event.preventDefault();
+  }
+});
+
+userSecondsInput.addEventListener('keydown', function(event) {
+  if(keyErrors.includes(event.key)) {
+    event.preventDefault();
+  }
+});
 
 startActivityButton.addEventListener('click', showTimer);
 studyButton.addEventListener('click', highlightStudy);
@@ -32,14 +45,22 @@ exerciseButton.addEventListener('click', highlightExercise);
 //functions
 function highlightStudy() {
   highlight(studyButton, studyImage, "studyClick", "study");
+  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
+  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
 };
 
+//when one button is clicked
+//the other buttons have to not be able to be clicked
 function highlightMeditate() {
   highlight(meditateButton, meditateImage, "meditateClick", "meditate");
+  unhighlight(studyButton, studyImage, "studyClick", "study");
+  unhighlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
 };
 
 function highlightExercise() {
   highlight(exerciseButton, exerciseImage, "exerciseClick", "exercise");
+  unhighlight(meditateButton, meditateImage, "meditateClick", "meditate");
+  unhighlight(studyButton, studyImage, "studyClick", "study");
 };
 
 function showTimer(element) {
@@ -61,6 +82,27 @@ function highlight(element, element2, rule, icon) {
     element.classList.add(rule);
   }
 };
+
+function unhighlight(element, element2, rule, icon) {
+  if (!element.classList.contains(rule)) {
+    element2.src = `./assets/${icon}.svg`;
+    element.classList.remove(rule);
+  } else {
+    element2.src = `./assets/${icon}.svg`
+    element.classList.remove(rule);
+  }
+};
+
+// function preventKeyInput(event) {
+//   if (keyErrors.includes(event.key)) {
+//     event.preventDefault();
+//   }
+// }
+
+// function numbersErrorMessage() {
+//   visible(minutesError);
+// }
+
 
 function show(element) {
   element.classList.remove('hidden');
