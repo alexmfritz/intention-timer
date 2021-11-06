@@ -21,7 +21,12 @@ var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
 var keyErrors = ['-', '+', 'e', 'E', '.'];
-
+var currentActivity = {};
+var savedActivities = [];
+var selectedCategory= "";
+var meditateIds = ["meditate", "meditateImg", "meditateText"];
+var exerciseIds = ["exercise", "exerciseImg", "exerciseText"];
+var studyIds = ["study", "studyImg", "studyText"];
 //event listeners
 
 userMinutesInput.addEventListener('keydown', function(event) {
@@ -38,6 +43,12 @@ startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightStudy);
 meditateButton.addEventListener('click', highlightMeditate);
 exerciseButton.addEventListener('click', highlightExercise);
+selectorBox.addEventListener('click', function (event) {
+  checkCategory(event, meditateIds, "Meditate")
+  checkCategory(event, exerciseIds, "Exercise")
+  checkCategory(event, studyIds, "Study")
+
+});
 
 //functions
 function highlightStudy() {
@@ -107,6 +118,26 @@ function unhighlight(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
   element.classList.remove(rule);
 };
+
+function createActivity() {
+  currentActivity = new Activity()
+}
+
+
+function checkCategory(event, category, activity) {
+  for (var i = 0; i < category.length; i++) {
+    if (category[i] === event.target.id) {
+      selectedCategory = activity;
+    }
+  }
+}
+
+//for loop over the different ids, if studies.includes
+
+//have a function that checks the event target id
+//reassign category to be a string of
+//if study is clicked (event.target.id) is equal to one of those buttons, it will change goes in a variable
+//then we reference.
 
 
 function show(element) {
