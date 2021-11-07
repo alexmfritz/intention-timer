@@ -25,6 +25,8 @@ var chosenActivityDisplay = document.querySelector('.chosen-activity');
 var circle = document.querySelector('.circle');
 //aside
 var pastActivitiesText = document.querySelector('.past-activities-paragraphs');
+var pastActivitiesBox = document.querySelector('.past-activities-box')
+var pastActivityLog = document.querySelector('#activityLog')
 //errors
 var categoryError = document.querySelector('.category');
 var accomplishError = document.querySelector('.accomplish');
@@ -46,6 +48,11 @@ startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightStudy);
 meditateButton.addEventListener('click', highlightMeditate);
 exerciseButton.addEventListener('click', highlightExercise);
+logActivityButton.addEventListener('click', function(event) {
+  hide(pastActivitiesText, 'hidden');
+  show(pastActivitiesBox, 'hidden')
+  displayLoggedActivity();
+});
 userMinutesInput.addEventListener('keydown', function(event) {
   if(keyErrors.includes(event.key)) {
     event.preventDefault();
@@ -57,13 +64,33 @@ userSecondsInput.addEventListener('keydown', function(event) {
   }
 });
 categoryBox.addEventListener('click', function (event) {
-  checkCategory(event, meditateIds, 'Meditate')
-  checkCategory(event, exerciseIds, 'Exercise')
-  checkCategory(event, studyIds, 'Study')
-
+  checkCategory(event, meditateIds, 'Meditate');
+  checkCategory(event, exerciseIds, 'Exercise');
+  checkCategory(event, studyIds, 'Study');
 });
 
 //functions
+function displayLoggedActivity() {
+  completeActivity()
+  pastActivitiesBox.innerHTML = '';
+  for (var i = 0; i < savedActivities.length; i++) {
+    pastActivitiesBox.innerHTML += `
+    <section class="past-activities">
+      <p class="category-header">${savedActivities[i].category}</p>
+      <p class="logged-timer">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+      <p class="activity-description">${savedActivities[i].description}</p>
+    </section>
+    <section class="category-color-box">
+      <div class="category-color-bar ${savedActivities[i].category}"></div>
+    </section>`
+  }
+}
+
+function completeActivity() {
+  currentActivity.markComplete()
+  savedActivities.push(currentActivity);
+};
+
 function highlightStudy() {
   highlight(studyButton, studyImage, 'study-click', 'study');
   unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
@@ -99,7 +126,7 @@ function highlight(element, element2, rule, icon) {
     element2.src = `./assets/${icon}.svg`;
     element.classList.remove(rule);
   } else {
-    element2.src = `./assets/${icon}-active.svg`
+    element2.src = `./assets/${icon}-active.svg`;
     element.classList.add(rule);
   };
 };
@@ -155,7 +182,6 @@ function unhighlight(element, element2, rule, icon) {
 
 function createActivity() {
   currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value);
-  savedActivities.push(currentActivity);
 };
 
 function checkCategory(event, category, activity) {

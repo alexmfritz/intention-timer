@@ -303,14 +303,6 @@ aside {
   width: 40px;
 }
 
-.hidden {
-  display: none;
-}
-
-.visibility {
-  visibility: hidden;
-}
-
 .past-activities-box {
   display: flex;
   padding: 2%;
@@ -357,4 +349,12 @@ aside {
   width: 5px;
   border-radius: 5px;
   background-color: pink;
+}
+
+.hidden {
+  display: none;
+}
+
+.visibility {
+  visibility: hidden;
 }
