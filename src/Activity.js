@@ -18,6 +18,7 @@ class Activity {
      } else if (minutes == 0 && seconds == 0) {
        show(startTimerButton, 'disabled');
        startTimerButton.innerText = 'FINISHED!';
+       visible(logActivityButton);
        return timerDisplay.innerText = 'NICE JOB!';
      }
      minutes = minutes.toString().padStart(2, '0');
