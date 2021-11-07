@@ -12,6 +12,7 @@ var exerciseButton = document.querySelector('.exercise');
 var startActivityButton = document.querySelector('#startActivity');
 var startTimerButton = document.querySelector('.start');
 var logActivityButton = document.querySelector('.log-activity-button');
+var createNewActivityButton = document.querySelector('.create-new-activity-button');
 //inputs
 var userAccomplishInput = document.querySelector('#userAccomplish');
 var userMinutesInput = document.querySelector('#userMinutes');
@@ -19,6 +20,7 @@ var userSecondsInput = document.querySelector('#userSeconds');
 //views
 var timerView = document.querySelector('.timer-presenter');
 var userActivityInputView = document.querySelector('.user-activity-input');
+var createNewActivityView = document.querySelector('.create-new-activity-view');
 //timer
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
@@ -43,6 +45,7 @@ var selectedCategory= '';
 var currentActivity = {};
 
 //event listeners
+createNewActivityButton.addEventListener('click', displayHomePage);
 startTimerButton.addEventListener('click', beginTimer);
 startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightStudy);
@@ -52,6 +55,7 @@ logActivityButton.addEventListener('click', function(event) {
   hide(pastActivitiesText, 'hidden');
   show(pastActivitiesBox, 'hidden')
   displayLoggedActivity();
+  displayCreateNewButton();
 });
 userMinutesInput.addEventListener('keydown', function(event) {
   if(keyErrors.includes(event.key)) {
@@ -70,6 +74,16 @@ categoryBox.addEventListener('click', function (event) {
 });
 
 //functions
+function displayHomePage() {
+  hide(createNewActivityView, 'hidden');
+  show(userActivityInputView, 'hidden');
+}
+
+function displayCreateNewButton() {
+  hide(timerView, 'hidden');
+  show(createNewActivityView, 'hidden');
+}
+
 function displayLoggedActivity() {
   completeActivity();
   pastActivitiesBox.innerHTML = '';
