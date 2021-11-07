@@ -54,6 +54,7 @@ main {
   border-right: 3px solid #46424D;
 }
 
+.create-new-activity-view,
 .timer-presenter,
 .user-activity-input {
   display: flex;
@@ -64,6 +65,26 @@ main {
   background-color: #46424D;
   border-radius: 5px;
   box-shadow: 5px 5px 5px #26222D;
+}
+
+.create-new-activity-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 95px;
+}
+
+.create-new-activity-button {
+  text-align: center;
+  height: 40px;
+  width: 350px;
+  color: #46424D;
+  background-color: #FFF;
+  border: none;
+  border-radius: 4px;
+  font-size: 17px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 .chosen-timer {
