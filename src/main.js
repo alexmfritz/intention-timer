@@ -80,6 +80,7 @@ function displayHomePage() {
 }
 
 function displayCreateNewButton() {
+  activityTitle.innerText = 'Completed Activity';
   hide(timerView, 'hidden');
   show(createNewActivityView, 'hidden');
 }
@@ -149,19 +150,19 @@ function highlight(element, element2, rule, icon) {
 
 function validateAccomplish() {
   if (userAccomplishInput.value === '') {
-    visible(accomplishError);
+    show(accomplishError, 'visibility');
   };
 };
 
 function validateMinutes() {
   if (userMinutesInput.value === '') {
-    visible(minutesError);
+    show(minutesError, 'visibility');
   };
 };
 
 function validatedSeconds() {
   if (userSecondsInput.value === '') {
-    visible(secondsError);
+    show(secondsError, 'visibility');
   };
 };
 
@@ -187,7 +188,7 @@ function showErrorMessages() {
 
 function validateCategory() {
   if (selectedCategory === '') {
-    visible(categoryError);
+    show(categoryError, 'visibility');
   }
 };
 
@@ -246,12 +247,4 @@ function show(element, rule) {
 
 function hide(element, rule) {
   element.classList.add(rule);
-};
-
-function visible(element) {
-  element.classList.remove('visibility');
-};
-
-function invisible(element) {
-  element.classList.add('visibility');
 };
