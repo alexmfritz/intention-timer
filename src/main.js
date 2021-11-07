@@ -23,6 +23,7 @@ var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
 var circle = document.querySelector('.circle');
 //errors
+var categoryError = document.querySelector('.category');
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
@@ -119,7 +120,7 @@ function validatedSeconds() {
 };
 
 function startActivity() {
-  if (userAccomplishInput.value !== "" && userMinutesInput.value !== "" && userSecondsInput.value !== "") {
+  if (selectedCategory !== "" && userAccomplishInput.value !== "" && userMinutesInput.value !== "" && userSecondsInput.value !== "") {
     createActivity();
     showTimer();
   } else {
@@ -132,10 +133,17 @@ function beginTimer() {
 };
 
 function showErrorMessages() {
+  validateCategory();
   validateAccomplish();
   validateMinutes();
   validatedSeconds();
 };
+
+function validateCategory() {
+  if (selectedCategory === "") {
+    visible(categoryError);
+  }
+}
 
 function unhighlight(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
