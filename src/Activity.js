@@ -27,6 +27,9 @@ class Activity {
    )
   }
   markComplete() {
+    this.completed = true;
+    hide(pastActivitiesText, 'hidden');
+
 
   }
   saveToStorage() {
