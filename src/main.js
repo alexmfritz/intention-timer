@@ -180,6 +180,11 @@ function changeCircleColor(element) {
   }
 };
 
+function disableButton(element) {
+  element.disabled = true;
+  hide(element, "disabled");
+}
+
 function show(element, rule) {
   element.classList.remove(rule);
 };
