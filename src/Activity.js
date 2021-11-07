@@ -4,6 +4,7 @@ class Activity {
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
+    this.color = changeColorBar();
     this.completed = false;
     this.id = Date.now();
   }
