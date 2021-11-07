@@ -25,8 +25,8 @@ var chosenActivityDisplay = document.querySelector('.chosen-activity');
 var circle = document.querySelector('.circle');
 //aside
 var pastActivitiesText = document.querySelector('.past-activities-paragraphs');
-var pastActivitiesBox = document.querySelector('.past-activities-box')
-var pastActivityLog = document.querySelector('#activityLog')
+var pastActivitiesBox = document.querySelector('.past-activities-box');
+var pastActivityLog = document.querySelector('#activityLog');
 //errors
 var categoryError = document.querySelector('.category');
 var accomplishError = document.querySelector('.accomplish');
@@ -71,7 +71,7 @@ categoryBox.addEventListener('click', function (event) {
 
 //functions
 function displayLoggedActivity() {
-  completeActivity()
+  completeActivity();
   pastActivitiesBox.innerHTML = '';
   for (var i = 0; i < savedActivities.length; i++) {
     pastActivitiesBox.innerHTML += `
@@ -81,9 +81,11 @@ function displayLoggedActivity() {
       <p class="activity-description">${savedActivities[i].description}</p>
     </section>
     <section class="category-color-box">
-      <div class="category-color-bar ${savedActivities[i].category}"></div>
+      <div class="category-color-bar"></div>
     </section>`
   }
+  var categoryColorBar = document.querySelector('.category-color-bar');
+  changeColorBar(categoryColorBar);
 }
 
 function completeActivity() {
@@ -206,6 +208,16 @@ function changeCircleColor(element) {
     hide(element, 'purple');
   } else if (currentActivity.category === 'Exercise') {
     hide(element, 'red');
+  }
+};
+
+function changeColorBar(element) {
+  if (currentActivity.category === 'Study') {
+    hide(element, 'green-bar');
+  } else if (currentActivity.category === 'Meditate') {
+    hide(element, 'purple-bar');
+  } else if (currentActivity.category === 'Exercise') {
+    hide(element, 'red-bar');
   }
 };
 
