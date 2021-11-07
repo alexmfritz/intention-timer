@@ -10,6 +10,7 @@ var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
 var startActivityButton = document.querySelector('#startActivity');
+var startTimerButton = document.querySelector('.start');
 //inputs
 var userAccomplishInput = document.querySelector('#userAccomplish');
 var userMinutesInput = document.querySelector('#userMinutes');
@@ -36,6 +37,7 @@ var selectedCategory= "";
 var currentActivity = {};
 
 //event listeners
+startTimerButton.addEventListener('click', beginTimer);
 startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightStudy);
 meditateButton.addEventListener('click', highlightMeditate);
@@ -123,6 +125,10 @@ function startActivity() {
   } else {
     showErrorMessages();
   }
+};
+
+function beginTimer() {
+  currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
 };
 
 function showErrorMessages() {
