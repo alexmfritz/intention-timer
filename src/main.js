@@ -75,6 +75,10 @@ categoryBox.addEventListener('click', function (event) {
 
 //functions
 function displayHomePage() {
+  selectedCategory = '';
+  userSecondsInput.value = '';
+  userAccomplishInput.value = '';
+  userMinutesInput.value = '';
   hide(createNewActivityView, 'hidden');
   show(userActivityInputView, 'hidden');
 }
@@ -97,17 +101,14 @@ function displayLoggedActivity() {
         <p class="activity-description">${savedActivities[i].description}</p>
       </section>
       <section class="category-color-box">
-        <div class="category-color-bar"></div>
+        <div class="category-color-bar ${savedActivities[i].color}"></div>
       </section>
     </section>`
   }
-  var categoryColorBar = document.querySelector('.category-color-bar');
-  changeColorBar(categoryColorBar);
 }
 
 function completeActivity() {
   currentActivity.markComplete()
-  savedActivities.push(currentActivity);
 };
 
 function highlightStudy() {
@@ -201,6 +202,7 @@ function unhighlight(element, element2, rule, icon) {
 
 function createActivity() {
   currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value);
+  savedActivities.push(currentActivity);
 };
 
 function checkCategory(event, category, activity) {
@@ -228,14 +230,16 @@ function changeCircleColor(element) {
   }
 };
 
-function changeColorBar(element) {
-  if (currentActivity.category === 'Study') {
-    hide(element, 'green-bar');
-  } else if (currentActivity.category === 'Meditate') {
-    hide(element, 'purple-bar');
-  } else if (currentActivity.category === 'Exercise') {
-    hide(element, 'red-bar');
-  }
+function changeColorBar() {
+  for (var i = 0; i < savedActivities.length; i++) {
+    if (savedActivities[i].category === 'Study') {
+      savedActivities[i].color = 'green-bar';
+    } else if (savedActivities[i].category === 'Meditate') {
+      savedActivities[i].color = 'purple-bar';
+    } else if (savedActivities[i].category === 'Exercise') {
+      savedActivities[i].color = 'red-bar';
+    }
+  };
 };
 
 function disableButton(element) {
