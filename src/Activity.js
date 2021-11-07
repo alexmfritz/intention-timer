@@ -15,9 +15,10 @@ class Activity {
      } else if (minutes > 0) {
        minutes -= 1;
        seconds = 59;
-     } else {
+     } else if (minutes == 0 && seconds == 0) {
        show(startTimerButton, 'disabled');
-       return startTimerButton.innerText = 'FINISHED!';
+       startTimerButton.innerText = 'FINISHED!';
+       return timerDisplay.innerText = 'NICE JOB!';
      }
      minutes = minutes.toString().padStart(2, '0');
      seconds = seconds.toString().padStart(2, '0');

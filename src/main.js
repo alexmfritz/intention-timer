@@ -200,3 +200,7 @@ function visible(element) {
 function invisible(element) {
   element.classList.add('visibility');
 };
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+};
