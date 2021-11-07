@@ -27,7 +27,7 @@ var chosenActivityDisplay = document.querySelector('.chosen-activity');
 var circle = document.querySelector('.circle');
 //aside
 var pastActivitiesText = document.querySelector('.past-activities-paragraphs');
-var pastActivitiesBox = document.querySelector('.past-activities-box');
+var pastActivitiesBox = document.querySelector('.empty-box');
 var pastActivityLog = document.querySelector('#activityLog');
 //errors
 var categoryError = document.querySelector('.category');
@@ -90,13 +90,15 @@ function displayLoggedActivity() {
   pastActivitiesBox.innerHTML = '';
   for (var i = 0; i < savedActivities.length; i++) {
     pastActivitiesBox.innerHTML += `
-    <section class="past-activities">
-      <p class="category-header">${savedActivities[i].category}</p>
-      <p class="logged-timer">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
-      <p class="activity-description">${savedActivities[i].description}</p>
-    </section>
-    <section class="category-color-box">
-      <div class="category-color-bar"></div>
+    <section class="past-activities-box">
+      <section class="past-activities">
+        <p class="category-header">${savedActivities[i].category}</p>
+        <p class="logged-timer">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+        <p class="activity-description">${savedActivities[i].description}</p>
+      </section>
+      <section class="category-color-box">
+        <div class="category-color-bar"></div>
+      </section>
     </section>`
   }
   var categoryColorBar = document.querySelector('.category-color-bar');
