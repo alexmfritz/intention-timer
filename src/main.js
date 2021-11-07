@@ -11,6 +11,7 @@ var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
 var startActivityButton = document.querySelector('#startActivity');
 var startTimerButton = document.querySelector('.start');
+var logActivityButton = document.querySelector('.log-activity-button');
 //inputs
 var userAccomplishInput = document.querySelector('#userAccomplish');
 var userMinutesInput = document.querySelector('#userMinutes');
