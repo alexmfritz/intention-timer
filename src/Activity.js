@@ -1,5 +1,5 @@
 class Activity {
-  constructor(category, description, minutes, seconds) {
+  constructor(category, description, minutes, seconds, color) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
@@ -28,9 +28,6 @@ class Activity {
   }
   markComplete() {
     this.completed = true;
-    hide(pastActivitiesText, 'hidden');
-
-
   }
   saveToStorage() {
 
