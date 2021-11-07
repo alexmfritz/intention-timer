@@ -122,6 +122,18 @@ main {
   border: 3px solid #FD8078;
 }
 
+.purple-bar {
+  background-color: #C278FD;
+}
+
+.green-bar {
+  background-color: #B3FD78;
+}
+
+.red-bar {
+  background-color: #FD8078;
+}
+
 .log-activity-button {
   display: flex;
   justify-content: center;
@@ -348,7 +360,6 @@ aside {
   height: 32px;
   width: 5px;
   border-radius: 5px;
-  background-color: pink;
 }
 
 .hidden {
