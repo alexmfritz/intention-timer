@@ -12,6 +12,7 @@ var exerciseButton = document.querySelector('.exercise');
 var startActivityButton = document.querySelector('#startActivity');
 var startTimerButton = document.querySelector('.start');
 var logActivityButton = document.querySelector('.log-activity-button');
+var createNewActivityButton = document.querySelector('.create-new-activity-button');
 //inputs
 var userAccomplishInput = document.querySelector('#userAccomplish');
 var userMinutesInput = document.querySelector('#userMinutes');
@@ -19,14 +20,15 @@ var userSecondsInput = document.querySelector('#userSeconds');
 //views
 var timerView = document.querySelector('.timer-presenter');
 var userActivityInputView = document.querySelector('.user-activity-input');
+var createNewActivityView = document.querySelector('.create-new-activity-view');
 //timer
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
 var circle = document.querySelector('.circle');
 //aside
 var pastActivitiesText = document.querySelector('.past-activities-paragraphs');
-var pastActivitiesBox = document.querySelector('.past-activities-box')
-var pastActivityLog = document.querySelector('#activityLog')
+var pastActivitiesBox = document.querySelector('.empty-box');
+var pastActivityLog = document.querySelector('#activityLog');
 //errors
 var categoryError = document.querySelector('.category');
 var accomplishError = document.querySelector('.accomplish');
@@ -43,6 +45,7 @@ var selectedCategory= '';
 var currentActivity = {};
 
 //event listeners
+createNewActivityButton.addEventListener('click', displayHomePage);
 startTimerButton.addEventListener('click', beginTimer);
 startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightStudy);
@@ -52,6 +55,7 @@ logActivityButton.addEventListener('click', function(event) {
   hide(pastActivitiesText, 'hidden');
   show(pastActivitiesBox, 'hidden')
   displayLoggedActivity();
+  displayCreateNewButton();
 });
 userMinutesInput.addEventListener('keydown', function(event) {
   if(keyErrors.includes(event.key)) {
@@ -70,20 +74,35 @@ categoryBox.addEventListener('click', function (event) {
 });
 
 //functions
+function displayHomePage() {
+  hide(createNewActivityView, 'hidden');
+  show(userActivityInputView, 'hidden');
+}
+
+function displayCreateNewButton() {
+  activityTitle.innerText = 'Completed Activity';
+  hide(timerView, 'hidden');
+  show(createNewActivityView, 'hidden');
+}
+
 function displayLoggedActivity() {
-  completeActivity()
+  completeActivity();
   pastActivitiesBox.innerHTML = '';
   for (var i = 0; i < savedActivities.length; i++) {
     pastActivitiesBox.innerHTML += `
-    <section class="past-activities">
-      <p class="category-header">${savedActivities[i].category}</p>
-      <p class="logged-timer">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
-      <p class="activity-description">${savedActivities[i].description}</p>
-    </section>
-    <section class="category-color-box">
-      <div class="category-color-bar ${savedActivities[i].category}"></div>
+    <section class="past-activities-box">
+      <section class="past-activities">
+        <p class="category-header">${savedActivities[i].category}</p>
+        <p class="logged-timer">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
+        <p class="activity-description">${savedActivities[i].description}</p>
+      </section>
+      <section class="category-color-box">
+        <div class="category-color-bar"></div>
+      </section>
     </section>`
   }
+  var categoryColorBar = document.querySelector('.category-color-bar');
+  changeColorBar(categoryColorBar);
 }
 
 function completeActivity() {
@@ -133,19 +152,19 @@ function highlight(element, element2, rule, icon) {
 
 function validateAccomplish() {
   if (userAccomplishInput.value === '') {
-    visible(accomplishError);
+    show(accomplishError, 'visibility');
   };
 };
 
 function validateMinutes() {
   if (userMinutesInput.value === '') {
-    visible(minutesError);
+    show(minutesError, 'visibility');
   };
 };
 
 function validatedSeconds() {
   if (userSecondsInput.value === '') {
-    visible(secondsError);
+    show(secondsError, 'visibility');
   };
 };
 
@@ -171,7 +190,7 @@ function showErrorMessages() {
 
 function validateCategory() {
   if (selectedCategory === '') {
-    visible(categoryError);
+    show(categoryError, 'visibility');
   }
 };
 
@@ -209,6 +228,16 @@ function changeCircleColor(element) {
   }
 };
 
+function changeColorBar(element) {
+  if (currentActivity.category === 'Study') {
+    hide(element, 'green-bar');
+  } else if (currentActivity.category === 'Meditate') {
+    hide(element, 'purple-bar');
+  } else if (currentActivity.category === 'Exercise') {
+    hide(element, 'red-bar');
+  }
+};
+
 function disableButton(element) {
   element.disabled = true;
   hide(element, 'disabled');
@@ -220,12 +249,4 @@ function show(element, rule) {
 
 function hide(element, rule) {
   element.classList.add(rule);
-};
-
-function visible(element) {
-  element.classList.remove('visibility');
-};
-
-function invisible(element) {
-  element.classList.add('visibility');
 };
