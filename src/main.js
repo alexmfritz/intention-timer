@@ -23,6 +23,8 @@ var userActivityInputView = document.querySelector('.user-activity-input');
 var timerDisplay = document.querySelector('.start-time');
 var chosenActivityDisplay = document.querySelector('.chosen-activity');
 var circle = document.querySelector('.circle');
+//aside
+var pastActivitiesText = document.querySelector('.past-activities-paragraphs');
 //errors
 var categoryError = document.querySelector('.category');
 var accomplishError = document.querySelector('.accomplish');
