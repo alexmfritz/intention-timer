@@ -87,6 +87,9 @@ main {
   background: none;
 }
 
+.disabled {
+  opacity: .25;
+}
 
 .start-time {
   margin-top: 0;
