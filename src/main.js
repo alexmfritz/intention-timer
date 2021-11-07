@@ -11,6 +11,7 @@ var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
 var startActivityButton = document.querySelector('#startActivity');
 var startTimerButton = document.querySelector('.start');
+var logActivityButton = document.querySelector('.log-activity-button');
 //inputs
 var userAccomplishInput = document.querySelector('#userAccomplish');
 var userMinutesInput = document.querySelector('#userMinutes');
@@ -143,7 +144,7 @@ function validateCategory() {
   if (selectedCategory === '') {
     visible(categoryError);
   }
-}
+};
 
 function unhighlight(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
@@ -168,7 +169,7 @@ function displayUserInput() {
   currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
   chosenActivityDisplay.innerText = `${currentActivity.description}`;
-}
+};
 
 function changeCircleColor(element) {
   if (currentActivity.category === 'Study') {
@@ -183,7 +184,7 @@ function changeCircleColor(element) {
 function disableButton(element) {
   element.disabled = true;
   hide(element, 'disabled');
-}
+};
 
 function show(element, rule) {
   element.classList.remove(rule);
