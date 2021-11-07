@@ -105,8 +105,8 @@ main {
   justify-content: center;
   align-items: center;
   border-radius: 50%;
-  height: 275px;
-  width: 275px;
+  height: 250px;
+  width: 250px;
   background: #46424D;
 }
 
@@ -120,6 +120,20 @@ main {
 
 .red {
   border: 3px solid #FD8078;
+}
+
+.log-activity-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFF;
+  border: none;
+  color: #46424D;
+  border-radius: 4px;
+  font-size: 17px;
+  height: 40px;
+  width: 250px;
+  margin-top: 40px;
 }
 
 #category {
@@ -225,7 +239,7 @@ main {
   padding-left: 7px;
   padding-right: 7px;
   float: right;
-  margin-top: 30px;
+  margin-top: 10px;
   margin-right: 92px;
   font-size: 17px;
   color: #46424D;
