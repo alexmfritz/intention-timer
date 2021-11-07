@@ -30,10 +30,10 @@ var secondsError = document.querySelector('.seconds');
 var keyErrors = ['-', '+', 'e', 'E', '.'];
 //arrays
 var savedActivities = [];
-var meditateIds = ["meditate", "meditateImg", "meditateText"];
-var exerciseIds = ["exercise", "exerciseImg", "exerciseText"];
-var studyIds = ["study", "studyImg", "studyText"];
-var selectedCategory= "";
+var meditateIds = ['meditate', 'meditateImg', 'meditateText'];
+var exerciseIds = ['exercise', 'exerciseImg', 'exerciseText'];
+var studyIds = ['study', 'studyImg', 'studyText'];
+var selectedCategory= '';
 
 var currentActivity = {};
 
@@ -54,29 +54,29 @@ userSecondsInput.addEventListener('keydown', function(event) {
   }
 });
 categoryBox.addEventListener('click', function (event) {
-  checkCategory(event, meditateIds, "Meditate")
-  checkCategory(event, exerciseIds, "Exercise")
-  checkCategory(event, studyIds, "Study")
+  checkCategory(event, meditateIds, 'Meditate')
+  checkCategory(event, exerciseIds, 'Exercise')
+  checkCategory(event, studyIds, 'Study')
 
 });
 
 //functions
 function highlightStudy() {
-  highlight(studyButton, studyImage, "study-click", "study");
-  unhighlight(meditateButton, meditateImage, "meditate-click", "meditate");
-  unhighlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
+  highlight(studyButton, studyImage, 'study-click', 'study');
+  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
 };
 
 function highlightMeditate() {
-  highlight(meditateButton, meditateImage, "meditate-click", "meditate");
-  unhighlight(studyButton, studyImage, "study-click", "study");
-  unhighlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
+  highlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlight(studyButton, studyImage, 'study-click', 'study');
+  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
 };
 
 function highlightExercise() {
-  highlight(exerciseButton, exerciseImage, "exercise-click", "exercise");
-  unhighlight(meditateButton, meditateImage, "meditate-click", "meditate");
-  unhighlight(studyButton, studyImage, "study-click", "study");
+  highlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlight(studyButton, studyImage, 'study-click', 'study');
 };
 
 function showTimer() {
@@ -120,7 +120,7 @@ function validatedSeconds() {
 };
 
 function startActivity() {
-  if (selectedCategory !== "" && userAccomplishInput.value !== "" && userMinutesInput.value !== "" && userSecondsInput.value !== "") {
+  if (selectedCategory !== '' && userAccomplishInput.value !== '' && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
     createActivity();
     showTimer();
   } else {
@@ -140,7 +140,7 @@ function showErrorMessages() {
 };
 
 function validateCategory() {
-  if (selectedCategory === "") {
+  if (selectedCategory === '') {
     visible(categoryError);
   }
 }
@@ -164,25 +164,25 @@ function checkCategory(event, category, activity) {
 };
 
 function displayUserInput() {
-  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, "0");
-  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, "0");
+  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, '0');
+  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
   chosenActivityDisplay.innerText = `${currentActivity.description}`;
 }
 
 function changeCircleColor(element) {
-  if (currentActivity.category === "Study") {
+  if (currentActivity.category === 'Study') {
     hide(element, 'green');
-  } else if (currentActivity.category === "Meditate") {
+  } else if (currentActivity.category === 'Meditate') {
     hide(element, 'purple');
-  } else if (currentActivity.category === "Exercise") {
+  } else if (currentActivity.category === 'Exercise') {
     hide(element, 'red');
   }
 };
 
 function disableButton(element) {
   element.disabled = true;
-  hide(element, "disabled");
+  hide(element, 'disabled');
 }
 
 function show(element, rule) {
