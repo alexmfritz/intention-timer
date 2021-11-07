@@ -144,7 +144,7 @@ function validateCategory() {
   if (selectedCategory === '') {
     visible(categoryError);
   }
-}
+};
 
 function unhighlight(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
@@ -169,7 +169,7 @@ function displayUserInput() {
   currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
   timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
   chosenActivityDisplay.innerText = `${currentActivity.description}`;
-}
+};
 
 function changeCircleColor(element) {
   if (currentActivity.category === 'Study') {
@@ -184,7 +184,7 @@ function changeCircleColor(element) {
 function disableButton(element) {
   element.disabled = true;
   hide(element, 'disabled');
-}
+};
 
 function show(element, rule) {
   element.classList.remove(rule);
@@ -200,8 +200,4 @@ function visible(element) {
 
 function invisible(element) {
   element.classList.add('visibility');
-};
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
 };
