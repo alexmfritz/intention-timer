@@ -17,27 +17,76 @@ font-family: 'Montserrat', sans-serif; */
 
 body {
   margin: 0;
-  background-color: #2B2733;
   overflow: hidden;
 }
 
-header {
+body, aside {
+  background-color: #2B2733;
+}
+
+header, main, .activity-presenter, .create-new-activity-view,
+.timer-presenter-view, .user-activity-input-view, .create-new-activity-box,
+.chosen-timer, .circle, .log-activity-button, .category-box, .timer-title-box,
+.timer-input-box, .activity-button-box, aside, .minutes-seconds,
+.past-activities-box, .past-activities, .category-color-box {
   display: flex;
+}
+
+header, .create-new-activity-box,
+.circle, .log-activity-button {
   justify-content: center;
+}
+
+.activity-presenter, .create-new-activity-view, .timer-presenter-view,
+.user-activity-input-view, .chosen-timer, aside, .past-activities {
+  flex-direction: column;
+}
+
+header, .past-activities-box, .create-new-activity-view,
+.timer-presenter-view, .user-activity-input-view, .activity-button,
+.past-activities-box {
   background-color: #46424D;
 }
 
-.page-title {
+.create-new-activity-box, .chosen-timer, .circle, .log-activity-button {
+  align-items: center;
+}
+
+.page-title, .activity-title, .chosen-activity,
+.start, .start-time, .category-choices, .activity-button,
+.form-text, .user-input, .past-activities-box {
   color: #FFF;
+}
+
+.create-new-activity-button, .log-activity-button, .start-activity {
+  background-color: #FFF;
+}
+
+.create-new-activity-button, .past-activities-paragraphs {
+  text-align: center;
+}
+
+.create-new-activity-view, .timer-presenter-view, .user-activity-input-view,
+.past-activities-box {
+  box-shadow: 5px 5px 5px #26222D;
+}
+
+.create-new-activity-view, .timer-presenter-view, .user-activity-input-view,
+.create-new-activity-button, .log-activity-button, .activity-button,
+.start-activity, .past-activities-box, .category-color-bar {
+  border-radius: 5px;
+}
+
+.create-new-activity-button, .start, .log-activity-button, .start-activity {
+  border: 0;
+}
+
+.create-new-activity-button, .log-activity-button, .start-activity {
+  color: #46424D;
 }
 
 main {
-  display: flex;
   height: 100vh;
-}
-
-.activity-title {
-  color: #FFF;
 }
 
 .new-activity {
@@ -45,8 +94,6 @@ main {
 }
 
 .activity-presenter {
-  display: flex;
-  flex-direction: column;
   width: 65%;
   border-right: 3px solid #46424D;
 }
@@ -54,45 +101,28 @@ main {
 .create-new-activity-view,
 .timer-presenter-view,
 .user-activity-input-view {
-  display: flex;
-  flex-direction: column;
   margin: 0 auto;
   height: 78.5%;
   width: 95%;
-  background-color: #46424D;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #26222D;
 }
 
 .create-new-activity-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   margin-top: 95px;
 }
 
 .create-new-activity-button {
-  text-align: center;
   height: 40px;
   width: 350px;
-  color: #46424D;
-  background-color: #FFF;
-  border: 0;
-  border-radius: 4px;
   font-size: 17px;
   padding-left: 30px;
   padding-right: 30px;
 }
 
 .chosen-timer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   margin-top: 5%;
 }
 
 .chosen-activity {
-  color: #FFF;
   font-size: 26px;
   font-weight: lighter;
   margin-bottom: 0;
@@ -100,8 +130,6 @@ main {
 
 .start {
   font-size: 26px;
-  color: #FFF;
-  border: 0;
   background: none;
 }
 
@@ -112,16 +140,12 @@ main {
 .start-time {
   margin-top: 0;
   margin-bottom: 30px;
-  color: #FFF;
   font-size: 100px;
   font-weight: black;
   font-family: 'Arimo';
 }
 
 .circle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 50%;
   height: 250px;
   width: 250px;
@@ -153,13 +177,6 @@ main {
 }
 
 .log-activity-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #FFF;
-  border: 0;
-  color: #46424D;
-  border-radius: 4px;
   font-size: 17px;
   height: 40px;
   width: 250px;
@@ -172,13 +189,11 @@ main {
 }
 
 .category-box {
-  display: flex;
   justify-content: space-evenly;
 }
 
 .category-choices {
   font-size: 19px;
-  color: #FFF;
 }
 
 .button-title {
@@ -187,10 +202,7 @@ main {
 }
 
 .activity-button {
-  background-color: #46424D;
   border: 2px solid #FFF;
-  color: #FFF;
-  border-radius: 4px;
   margin-bottom: 18px;
 }
 
@@ -199,10 +211,6 @@ main {
   margin-top: 10px;
   height: 25px;
   width: 150px;
-}
-
-.form-text {
-  color: #FFF;
 }
 
 .accomplish-box {
@@ -214,7 +222,6 @@ main {
 }
 
 .timer-title-box {
-  display: flex;
   justify-content: space-between;
   padding-left: 10.5%;
 }
@@ -229,11 +236,9 @@ main {
   border-right: none;
   border-top: none;
   border-bottom-color: 5px solid #CBC9CF;
-  color: #FFF;
 }
 
 .timer-input-box {
-  display: flex;
   justify-content: space-around;
   padding-top: -20%;
 }
@@ -254,14 +259,10 @@ main {
 }
 
 .activity-button-box {
-  display: flex;
   flex-direction: row-reverse;
 }
 
 .start-activity {
-  background-color: #FFF;
-  border-radius: 4px;
-  border: 0;
   height: 40px;
   width: 190px;
   padding-left: 7px;
@@ -270,14 +271,10 @@ main {
   margin-top: 10px;
   margin-right: 92px;
   font-size: 17px;
-  color: #46424D;
 }
 
 aside {
-  display: flex;
-  flex-direction: column;
   width: 34.5%;
-  background-color: #2B2733;
 }
 
 .past-activities {
@@ -286,7 +283,6 @@ aside {
 
 .past-activities-paragraphs {
   font-size: 16px;
-  text-align: center;
   color: #CBC9CF;
   margin-bottom: 0;
   margin-top: 1.5%;
@@ -317,7 +313,6 @@ aside {
 }
 
 .minutes-seconds {
-  display: flex;
   flex-direction: row;
 }
 
@@ -340,21 +335,14 @@ aside {
 }
 
 .past-activities-box {
-  display: flex;
   padding: 2%;
   width: 88%;
   height: 80px;
   margin: 0 auto;
   margin-bottom: 20px;
-  color: #FFF;
-  border-radius: 5px;
-  box-shadow: 5px 5px 5px #26222D;
-  background-color: #46424D;
 }
 
 .past-activities {
-  display: flex;
-  flex-direction: column;
   width: 98%;
 }
 
@@ -376,7 +364,6 @@ aside {
 }
 
 .category-color-box {
-  display: flex;
   justify-content: flex-end;
   align-items: flex-start;
 }
@@ -384,7 +371,6 @@ aside {
 .category-color-bar {
   height: 32px;
   width: 5px;
-  border-radius: 5px;
 }
 
 .hidden {
