@@ -74,45 +74,6 @@ categoryBox.addEventListener('click', function (event) {
 });
 
 //functions
-function displayHomePage() {
-  clearInput();
-  clearButton();
-  clearErrorMessage();
-  clearCircle();
-  hide(createNewActivityView, 'hidden');
-  show(userActivityInputView, 'hidden');
-}
-
-function clearInput() {
-  selectedCategory = '';
-  userSecondsInput.value = '';
-  userAccomplishInput.value = '';
-  userMinutesInput.value = '';
-}
-
-function clearButton() {
-  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
-  unhighlight(studyButton, studyImage, 'study-click', 'study');
-}
-
-function clearCircle() {
-  show(circle, 'green');
-  show(circle, 'purple');
-  show(circle, 'red');
-}
-
-function clearErrorMessage() {
-  hide(accomplishError, 'visibility');
-  hide(minutesError, 'visibility');
-  hide(secondsError, 'visibility');
-}
-
-function displayCreateNewButton() {
-  activityTitle.innerText = 'Completed Activity';
-  hide(timerView, 'hidden');
-  show(createNewActivityView, 'hidden');
-}
 
 function displayLoggedActivity() {
   completeActivity();
@@ -128,12 +89,90 @@ function displayLoggedActivity() {
       <section class="category-color-box">
         <div class="category-color-bar ${savedActivities[i].color}"></div>
       </section>
-    </section>`
-  }
-}
+    </section>`;
+  };
+};
 
-function completeActivity() {
-  currentActivity.markComplete()
+function startActivity() {
+  if (selectedCategory !== '' && userAccomplishInput.value !== '' && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
+    createActivity();
+    showTimer();
+    refreshTimer();
+  } else {
+    showErrorMessages();
+  }
+};
+
+function refreshTimer() {
+  startTimerButton.disabled = false;
+  startTimerButton.innerText = 'START';
+  hide(logActivityButton, 'visibility')
+};
+
+function changeColorBar() {
+  for (var i = 0; i < savedActivities.length; i++) {
+    if (savedActivities[i].category === 'Study') {
+      savedActivities[i].color = 'green-bar';
+    } else if (savedActivities[i].category === 'Meditate') {
+      savedActivities[i].color = 'purple-bar';
+    } else if (savedActivities[i].category === 'Exercise') {
+      savedActivities[i].color = 'red-bar';
+    }
+  };
+};
+
+function beginTimer() {
+  currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
+  changeColorBar();
+};
+
+function showErrorMessages() {
+  validateCategory();
+  validateAccomplish();
+  validateMinutes();
+  validatedSeconds();
+};
+
+function validateCategory() {
+  if (selectedCategory === '') {
+    show(categoryError, 'visibility');
+  };
+};
+
+function unhighlight(element, element2, rule, icon) {
+  element2.src = `./assets/${icon}.svg`;
+  element.classList.remove(rule);
+};
+
+function createActivity() {
+  var color = changeColorBar()
+  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value, color);
+  savedActivities.unshift(currentActivity);
+};
+
+function checkCategory(event, category, activity) {
+  for (var i = 0; i < category.length; i++) {
+    if (category[i] === event.target.id) {
+      selectedCategory = activity;
+    };
+  };
+};
+
+function displayUserInput() {
+  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, '0');
+  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
+  timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
+  chosenActivityDisplay.innerText = `${currentActivity.description}`;
+};
+
+function changeCircleColor(element) {
+  if (currentActivity.category === 'Study') {
+    hide(element, 'green');
+  } else if (currentActivity.category === 'Meditate') {
+    hide(element, 'purple');
+  } else if (currentActivity.category === 'Exercise') {
+    hide(element, 'red');
+  };
 };
 
 function highlightStudy() {
@@ -194,88 +233,49 @@ function validatedSeconds() {
   };
 };
 
-function startActivity() {
-  if (selectedCategory !== '' && userAccomplishInput.value !== '' && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
-    createActivity();
-    showTimer();
-    refreshTimer();
-  } else {
-    showErrorMessages();
-  }
+function displayHomePage() {
+  clearInput();
+  clearButton();
+  clearErrorMessage();
+  clearCircle();
+  hide(createNewActivityView, 'hidden');
+  show(userActivityInputView, 'hidden');
 };
 
-function refreshTimer() {
-  startTimerButton.disabled = false;
-  startTimerButton.innerText = 'START';
-  hide(logActivityButton, 'visibility')
-}
-
-function changeColorBar() {
-  for (var i = 0; i < savedActivities.length; i++) {
-    if (savedActivities[i].category === 'Study') {
-      savedActivities[i].color = 'green-bar';
-    } else if (savedActivities[i].category === 'Meditate') {
-      savedActivities[i].color = 'purple-bar';
-    } else if (savedActivities[i].category === 'Exercise') {
-      savedActivities[i].color = 'red-bar';
-    }
-  };
+function clearInput() {
+  selectedCategory = '';
+  userSecondsInput.value = '';
+  userAccomplishInput.value = '';
+  userMinutesInput.value = '';
 };
 
-function beginTimer() {
-  currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
-  changeColorBar();
+function clearButton() {
+  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  unhighlight(studyButton, studyImage, 'study-click', 'study');
 };
 
-function showErrorMessages() {
-  validateCategory();
-  validateAccomplish();
-  validateMinutes();
-  validatedSeconds();
+function clearCircle() {
+  show(circle, 'green');
+  show(circle, 'purple');
+  show(circle, 'red');
 };
 
-function validateCategory() {
-  if (selectedCategory === '') {
-    show(categoryError, 'visibility');
-  }
+function clearErrorMessage() {
+  hide(accomplishError, 'visibility');
+  hide(minutesError, 'visibility');
+  hide(secondsError, 'visibility');
 };
 
-function unhighlight(element, element2, rule, icon) {
-  element2.src = `./assets/${icon}.svg`;
-  element.classList.remove(rule);
+function displayCreateNewButton() {
+  activityTitle.innerText = 'Completed Activity';
+  hide(timerView, 'hidden');
+  show(createNewActivityView, 'hidden');
 };
 
-function createActivity() {
-  var color = changeColorBar()
-  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value, color);
-  savedActivities.unshift(currentActivity);
+function completeActivity() {
+  currentActivity.markComplete()
 };
-
-function checkCategory(event, category, activity) {
-  for (var i = 0; i < category.length; i++) {
-    if (category[i] === event.target.id) {
-      selectedCategory = activity;
-    }
-  }
-};
-
-function displayUserInput() {
-  currentActivity.minutes = currentActivity.minutes.toString().padStart(2, '0');
-  currentActivity.seconds = currentActivity.seconds.toString().padStart(2, '0');
-  timerDisplay.innerText = `${currentActivity.minutes}:${currentActivity.seconds}`;
-  chosenActivityDisplay.innerText = `${currentActivity.description}`;
-};
-
-function changeCircleColor(element) {
-  if (currentActivity.category === 'Study') {
-    hide(element, 'green');
-  } else if (currentActivity.category === 'Meditate') {
-    hide(element, 'purple');
-  } else if (currentActivity.category === 'Exercise') {
-    hide(element, 'red');
-  }
-};
-
 
 function disableButton(element) {
   element.disabled = true;
