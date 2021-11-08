@@ -198,10 +198,17 @@ function startActivity() {
   if (selectedCategory !== '' && userAccomplishInput.value !== '' && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
     createActivity();
     showTimer();
+    refreshTimer();
   } else {
     showErrorMessages();
   }
 };
+
+function refreshTimer() {
+  startTimerButton.disabled = false;
+  startTimerButton.innerText = 'START';
+  hide(logActivityButton, 'visibility')
+}
 
 function beginTimer() {
   currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
