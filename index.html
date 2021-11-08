@@ -18,67 +18,67 @@
             <button class="create-new-activity-button">CREATE A NEW ACTIVITY</button>
           </section>
         </section>
-        <section class="timer-presenter hidden">
+        <section class="timer-presenter-view hidden">
           <section class="chosen-timer">
             <h2 class="chosen-activity">Deep Breathing</h2>
             <h2 class="start-time">05:00</h2>
-              <div class="circle">
+              <section class="circle">
                 <button class="start">START</button>
-              </div>
+              </section>
               <button class="log-activity-button visibility">LOG ACTIVITY</button>
           </section>
         </section>
-        <section class="user-activity-input">
+        <section class="user-activity-input-view">
           <p class="category-choices select-category" id="category">Select a category:</p>
-          <div class="category-box">
-            <div class="activity-card">
+          <section class="category-box" id="categoryBox">
+            <section class="activity-card">
               <button class="activity-button study" id="study">
                 <img class="study-image" id="studyImg" src="./assets/study.svg">
-                <p class="button-title" id="studyText">Study
+                <p class="button-title" id="studyText">Study</p>
               </button>
-            </div>
-            <div class="activity-card">
+            </section>
+            <section class="activity-card">
               <button class="activity-button meditate" id="meditate">
                 <img class="meditate-image" id="meditateImg" src="./assets/meditate.svg"/>
-                <p class="button-title" id="meditateText">Meditate
+                <p class="button-title" id="meditateText">Meditate</p>
               </button>
-            </div>
-            <div class="activity-card">
+            </section>
+            <section class="activity-card">
               <button class="activity-button exercise" id="exercise">
               <img class="exercise-image" id="exerciseImg" src="./assets/exercise.svg">
-              <p class="button-title" id="exerciseText">Exercise
+              <p class="button-title" id="exerciseText">Exercise</p>
               </button>
-            </div>
-          </div>
-          <div class="selection-error-box category visibility">
+            </section>
+          </section>
+          <section class="selection-error-box category visibility">
             <p class="error-message" id="selectionError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A category is required.</p>
-          </div>
-          <div class="accomplish-box" id="accomplishBox">
+          </section>
+          <section class="accomplish-box" id="accomplishBox">
             <p class="category-choices" id="whatAccomplish">What would you like to accomplish during this time?</p>
             <p><input class="user-input user-accomplish" id="userAccomplish" type="text" name="accomplish" min="0"/></p>
-          </div>
-          <div class="selection-error-box accomplish visibility">
+          </section>
+          <section class="selection-error-box accomplish visibility">
             <p class="error-message" id="accomplishError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A description is required.</p>
-          </div>
-          <div class="timer-title-box" id="timerTitleBox">
+          </section>
+          <section class="timer-title-box" id="timerTitleBox">
             <p class="category-choices" id="minutes">Minutes</p>
             <p class="category-choices seconds-text" id="seconds">Seconds</p>
-          </div>
-          <div class="timer-input-box">
+          </section>
+          <section class="timer-input-box">
             <p class="input-minutes-line">
               <input class="user-input user-minutes" id="userMinutes" type="number" name="minutes" min="0"/>
             </p>
             <p class="input-seconds-line">
               <input class="user-input user-seconds" id="userSeconds" type="number" name="seconds" min="0"/>
             </p>
-          </div>
-          <div class="selection-error-box minutes-seconds">
+          </section>
+          <section class="selection-error-box minutes-seconds">
             <p class="error-message minutes visibility" id="minutesError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Minutes are required.</p>
             <p class="error-message seconds-error seconds visibility" id="secondsError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Seconds are required.</p>
-          </div>
-          <div class="activity-button-box">
+          </section>
+          <section class="activity-button-box">
             <button class="start-activity" id="startActivity">START ACTIVITY</button>
-          </div>
+          </section>
         </section>
       </section>
       <aside id="activityLog">
@@ -94,6 +94,7 @@
       </aside>
     </main>
   </body>
+  <script type="text/javascript" src="./src/data.js"></script>
   <script type="text/javascript" src="./src/Activity.js"></script>
   <script type="text/javascript" src="./src/main.js"></script>
 </html>
