@@ -77,7 +77,7 @@ main {
   width: 350px;
   color: #46424D;
   background-color: #FFF;
-  border: none;
+  border: 0;
   border-radius: 4px;
   font-size: 17px;
   padding-left: 30px;
@@ -101,7 +101,7 @@ main {
 .start {
   font-size: 26px;
   color: #FFF;
-  border: none;
+  border: 0;
   background: none;
 }
 
@@ -157,7 +157,7 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #FFF;
-  border: none;
+  border: 0;
   color: #46424D;
   border-radius: 4px;
   font-size: 17px;
@@ -247,12 +247,10 @@ main {
   padding-right: 16%;
 }
 
-.user-minutes {
-  width: 180%;
-}
-
+.user-minutes,
 .user-seconds {
   width: 180%;
+  margin-bottom: 10px;
 }
 
 .activity-button-box {
@@ -263,7 +261,7 @@ main {
 .start-activity {
   background-color: #FFF;
   border-radius: 4px;
-  border: none;
+  border: 0;
   height: 40px;
   width: 190px;
   padding-left: 7px;
