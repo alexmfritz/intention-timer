@@ -27,7 +27,7 @@ header {
   background-color: #46424D;
 }
 
-#pageTitle {
+.page-title {
   color: #FFF;
 }
 
@@ -40,11 +40,7 @@ main {
   color: #FFF;
 }
 
-#newActivity {
-  margin-left: 23px;
-}
-
-#pastActivities {
+.new-activity {
   margin-left: 23px;
 }
 
@@ -170,7 +166,7 @@ main {
   margin-top: 40px;
 }
 
-#category {
+.select-category {
   padding-top: 5%;
   padding-left: 10.5%;
 }
@@ -209,21 +205,21 @@ main {
   color: #FFF;
 }
 
-#accomplishBox {
+.accomplish-box {
   padding-left: 10.5%;
 }
 
-#userAccomplish {
+.user-accomplish {
   width: 87.5%;
 }
 
-#timerTitleBox {
+.timer-title-box {
   display: flex;
   justify-content: space-between;
   padding-left: 10.5%;
 }
 
-#seconds {
+.seconds-text {
   margin-right: 37.5%;
 }
 
@@ -251,11 +247,11 @@ main {
   padding-right: 16%;
 }
 
-#userMinutes {
+.user-minutes {
   width: 180%;
 }
 
-#userSeconds {
+.user-seconds {
   width: 180%;
 }
 
@@ -264,7 +260,7 @@ main {
   flex-direction: row-reverse;
 }
 
-#startActivity {
+.start-activity {
   background-color: #FFF;
   border-radius: 4px;
   border: none;
@@ -284,6 +280,10 @@ aside {
   flex-direction: column;
   width: 34.5%;
   background-color: #2B2733;
+}
+
+.past-activities {
+  margin-left: 23px;
 }
 
 .past-activities-paragraphs {
@@ -323,7 +323,7 @@ aside {
   flex-direction: row;
 }
 
-#secondsError {
+.seconds-error {
   margin-left: 200px;
 }
 
