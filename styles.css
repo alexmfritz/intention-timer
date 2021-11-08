@@ -33,6 +33,7 @@ header {
 
 main {
   display: flex;
+  height: 100vh;
 }
 
 .activity-title {
@@ -283,7 +284,6 @@ aside {
   flex-direction: column;
   width: 34.5%;
   background-color: #2B2733;
-  height: 100vh;
 }
 
 .past-activities-paragraphs {
@@ -334,6 +334,11 @@ aside {
 .error-message > .triangle {
   height: 15px;
   width: 40px;
+}
+
+.scroll-box {
+  max-height: 80%;
+  overflow-y: scroll;
 }
 
 .past-activities-box {
