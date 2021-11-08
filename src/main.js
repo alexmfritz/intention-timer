@@ -210,8 +210,21 @@ function refreshTimer() {
   hide(logActivityButton, 'visibility')
 }
 
+function changeColorBar() {
+  for (var i = 0; i < savedActivities.length; i++) {
+    if (savedActivities[i].category === 'Study') {
+      savedActivities[i].color = 'green-bar';
+    } else if (savedActivities[i].category === 'Meditate') {
+      savedActivities[i].color = 'purple-bar';
+    } else if (savedActivities[i].category === 'Exercise') {
+      savedActivities[i].color = 'red-bar';
+    }
+  };
+};
+
 function beginTimer() {
   currentActivity.startTimer(currentActivity.minutes, currentActivity.seconds);
+  changeColorBar();
 };
 
 function showErrorMessages() {
@@ -233,8 +246,9 @@ function unhighlight(element, element2, rule, icon) {
 };
 
 function createActivity() {
-  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value);
-  savedActivities.push(currentActivity);
+  var color = changeColorBar()
+  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value, color);
+  savedActivities.unshift(currentActivity);
 };
 
 function checkCategory(event, category, activity) {
@@ -262,17 +276,6 @@ function changeCircleColor(element) {
   }
 };
 
-function changeColorBar() {
-  for (var i = 0; i < savedActivities.length; i++) {
-    if (savedActivities[i].category === 'Study') {
-      savedActivities[i].color = 'green-bar';
-    } else if (savedActivities[i].category === 'Meditate') {
-      savedActivities[i].color = 'purple-bar';
-    } else if (savedActivities[i].category === 'Exercise') {
-      savedActivities[i].color = 'red-bar';
-    }
-  };
-};
 
 function disableButton(element) {
   element.disabled = true;
