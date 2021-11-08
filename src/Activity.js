@@ -1,10 +1,10 @@
 class Activity {
-  constructor(category, description, minutes, seconds) {
+  constructor(category, description, minutes, seconds, color) {
     this.category = category;
     this.description = description;
     this.minutes = minutes;
     this.seconds = seconds;
-    this.color = changeColorBar();
+    this.color = color;
     this.completed = false;
     this.id = Date.now();
   }
@@ -35,6 +35,3 @@ class Activity {
 
   }
 }
-
-
-module.exports = Activity;
