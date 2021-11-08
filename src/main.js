@@ -1,6 +1,6 @@
 var activityPresenter = document.querySelector('.activity-presenter');
-var activityTitle = document.querySelector('#newActivity');
-var categoryBox = document.querySelector('.category-box');
+var activityTitle = document.getElementById('newActivity');
+var categoryBox = document.getElementById('categoryBox');
 //images
 var studyImage = document.querySelector('.study-image');
 var meditateImage = document.querySelector('.meditate-image');
@@ -9,17 +9,17 @@ var exerciseImage = document.querySelector('.exercise-image');
 var studyButton = document.querySelector('.study');
 var meditateButton = document.querySelector('.meditate');
 var exerciseButton = document.querySelector('.exercise');
-var startActivityButton = document.querySelector('#startActivity');
+var startActivityButton = document.getElementById('startActivity');
 var startTimerButton = document.querySelector('.start');
 var logActivityButton = document.querySelector('.log-activity-button');
 var createNewActivityButton = document.querySelector('.create-new-activity-button');
 //inputs
-var userAccomplishInput = document.querySelector('#userAccomplish');
-var userMinutesInput = document.querySelector('#userMinutes');
-var userSecondsInput = document.querySelector('#userSeconds');
+var userAccomplishInput = document.getElementById('userAccomplish');
+var userMinutesInput = document.getElementById('userMinutes');
+var userSecondsInput = document.getElementById('userSeconds');
 //views
-var timerView = document.querySelector('.timer-presenter');
-var userActivityInputView = document.querySelector('.user-activity-input');
+var timerView = document.querySelector('.timer-presenter-view');
+var userActivityInputView = document.querySelector('.user-activity-input-view');
 var createNewActivityView = document.querySelector('.create-new-activity-view');
 //timer
 var timerDisplay = document.querySelector('.start-time');
@@ -34,15 +34,9 @@ var categoryError = document.querySelector('.category');
 var accomplishError = document.querySelector('.accomplish');
 var minutesError = document.querySelector('.minutes');
 var secondsError = document.querySelector('.seconds');
-var keyErrors = ['-', '+', 'e', 'E', '.'];
-//arrays
-var savedActivities = [];
-var meditateIds = ['meditate', 'meditateImg', 'meditateText'];
-var exerciseIds = ['exercise', 'exerciseImg', 'exerciseText'];
-var studyIds = ['study', 'studyImg', 'studyText'];
-var selectedCategory= '';
-
+//data model
 var currentActivity = {};
+var savedActivities = [];
 
 //event listeners
 createNewActivityButton.addEventListener('click', displayHomePage);
