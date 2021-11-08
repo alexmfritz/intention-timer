@@ -55,7 +55,7 @@
           </div>
           <div id="accomplishBox">
             <p class="category-choices" id="whatAccomplish">What would you like to accomplish during this time?</p>
-            <p><input class="user-input" id="userAccomplish" type="text" name="accomplish"/></p>
+            <p><input class="user-input" id="userAccomplish" type="text" name="accomplish" min="0"/></p>
           </div>
           <div class="selection-error-box accomplish visibility">
             <p class="error-message" id="accomplishError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A description is required.</p>
@@ -66,10 +66,10 @@
           </div>
           <div class="timer-input-box">
             <p class="input-minutes-line">
-              <input class="user-input" id="userMinutes" type="number" name="minutes"/>
+              <input class="user-input" id="userMinutes" type="number" name="minutes" min="0"/>
             </p>
             <p class="input-seconds-line">
-              <input class="user-input" id="userSeconds" type="number" name="seconds"/>
+              <input class="user-input" id="userSeconds" type="number" name="seconds" min="0"/>
             </p>
           </div>
           <div class="selection-error-box minutes-seconds">
