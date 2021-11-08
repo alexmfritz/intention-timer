@@ -48,12 +48,12 @@ var currentActivity = {};
 createNewActivityButton.addEventListener('click', displayHomePage);
 startTimerButton.addEventListener('click', beginTimer);
 startActivityButton.addEventListener('click', startActivity);
-studyButton.addEventListener('click', highlightStudy);
-meditateButton.addEventListener('click', highlightMeditate);
-exerciseButton.addEventListener('click', highlightExercise);
+studyButton.addEventListener('click', highlightCategoryStudy);
+meditateButton.addEventListener('click', highlightCategoryMeditate);
+exerciseButton.addEventListener('click', highlightCategoryExercise);
 logActivityButton.addEventListener('click', function(event) {
-  hide(pastActivitiesText, 'hidden');
-  show(pastActivitiesBox, 'hidden')
+  addClass(pastActivitiesText, 'hidden');
+  removeClass(pastActivitiesBox, 'hidden')
   displayLoggedActivity();
   displayCreateNewButton();
 });
@@ -74,10 +74,8 @@ categoryBox.addEventListener('click', function (event) {
 });
 
 //functions
-
 function displayLoggedActivity() {
   completeActivity();
-  savedActivities = parseActivities();
   pastActivitiesBox.innerHTML = '';
   for (var i = 0; i < savedActivities.length; i++) {
     pastActivitiesBox.innerHTML += `
@@ -94,28 +92,20 @@ function displayLoggedActivity() {
   };
 };
 
-function stringifyActivities(savedActivities) {
-  localStorage.setItem('savedActivities', JSON.stringify(savedActivities));
-};
-
-function parseActivities() {
-  return JSON.parse(localStorage.getItem('savedActivities'));
-};
-
 function startActivity() {
   if (selectedCategory !== '' && userAccomplishInput.value !== '' && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
     createActivity();
-    showTimer();
+    removeClassTimer();
     refreshTimer();
   } else {
-    showErrorMessages();
+    removeClassErrorMessages();
   }
 };
 
 function refreshTimer() {
   startTimerButton.disabled = false;
   startTimerButton.innerText = 'START';
-  hide(logActivityButton, 'visibility')
+  addClass(logActivityButton, 'visibility')
 };
 
 function changeColorBar() {
@@ -135,7 +125,7 @@ function beginTimer() {
   changeColorBar();
 };
 
-function showErrorMessages() {
+function removeClassErrorMessages() {
   validateCategory();
   validateAccomplish();
   validateMinutes();
@@ -144,18 +134,19 @@ function showErrorMessages() {
 
 function validateCategory() {
   if (selectedCategory === '') {
-    show(categoryError, 'visibility');
+    removeClass(categoryError, 'visibility');
   };
 };
 
-function unhighlight(element, element2, rule, icon) {
+function unhighlightCategory(element, element2, rule, icon) {
   element2.src = `./assets/${icon}.svg`;
   element.classList.remove(rule);
 };
 
 function createActivity() {
-  var color = changeColorBar()
+  var color = changeColorBar();
   currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value, color);
+  savedActivities.unshift(currentActivity);
 };
 
 function checkCategory(event, category, activity) {
@@ -175,35 +166,35 @@ function displayUserInput() {
 
 function changeCircleColor(element) {
   if (currentActivity.category === 'Study') {
-    hide(element, 'green');
+    addClass(element, 'green');
   } else if (currentActivity.category === 'Meditate') {
-    hide(element, 'purple');
+    addClass(element, 'purple');
   } else if (currentActivity.category === 'Exercise') {
-    hide(element, 'red');
+    addClass(element, 'red');
   };
 };
 
-function highlightStudy() {
-  highlight(studyButton, studyImage, 'study-click', 'study');
-  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+function highlightCategoryStudy() {
+  highlightCategory(studyButton, studyImage, 'study-click', 'study');
+  unhighlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
 };
 
-function highlightMeditate() {
-  highlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlight(studyButton, studyImage, 'study-click', 'study');
-  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+function highlightCategoryMeditate() {
+  highlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlightCategory(studyButton, studyImage, 'study-click', 'study');
+  unhighlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
 };
 
-function highlightExercise() {
-  highlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
-  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlight(studyButton, studyImage, 'study-click', 'study');
+function highlightCategoryExercise() {
+  highlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  unhighlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlightCategory(studyButton, studyImage, 'study-click', 'study');
 };
 
-function showTimer() {
-  show(timerView, 'hidden');
-  hide(userActivityInputView, 'hidden');
+function removeClassTimer() {
+  removeClass(timerView, 'hidden');
+  addClass(userActivityInputView, 'hidden');
   changeActivityTitle();
   displayUserInput();
   changeCircleColor(circle);
@@ -213,7 +204,7 @@ function changeActivityTitle() {
   activityTitle.innerText = 'Current Activity';
 };
 
-function highlight(element, element2, rule, icon) {
+function highlightCategory(element, element2, rule, icon) {
   if (element.classList.contains(rule)) {
     element2.src = `./assets/${icon}.svg`;
     element.classList.remove(rule);
@@ -225,19 +216,19 @@ function highlight(element, element2, rule, icon) {
 
 function validateAccomplish() {
   if (userAccomplishInput.value === '') {
-    show(accomplishError, 'visibility');
+    removeClass(accomplishError, 'visibility');
   };
 };
 
 function validateMinutes() {
   if (userMinutesInput.value === '') {
-    show(minutesError, 'visibility');
+    removeClass(minutesError, 'visibility');
   };
 };
 
 function validatedSeconds() {
   if (userSecondsInput.value === '') {
-    show(secondsError, 'visibility');
+    removeClass(secondsError, 'visibility');
   };
 };
 
@@ -246,8 +237,8 @@ function displayHomePage() {
   clearButton();
   clearErrorMessage();
   clearCircle();
-  hide(createNewActivityView, 'hidden');
-  show(userActivityInputView, 'hidden');
+  addClass(createNewActivityView, 'hidden');
+  removeClass(userActivityInputView, 'hidden');
 };
 
 function clearInput() {
@@ -258,27 +249,27 @@ function clearInput() {
 };
 
 function clearButton() {
-  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
-  unhighlight(studyButton, studyImage, 'study-click', 'study');
+  unhighlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  unhighlightCategory(studyButton, studyImage, 'study-click', 'study');
 };
 
 function clearCircle() {
-  show(circle, 'green');
-  show(circle, 'purple');
-  show(circle, 'red');
+  removeClass(circle, 'green');
+  removeClass(circle, 'purple');
+  removeClass(circle, 'red');
 };
 
 function clearErrorMessage() {
-  hide(accomplishError, 'visibility');
-  hide(minutesError, 'visibility');
-  hide(secondsError, 'visibility');
+  addClass(accomplishError, 'visibility');
+  addClass(minutesError, 'visibility');
+  addClass(secondsError, 'visibility');
 };
 
 function displayCreateNewButton() {
   activityTitle.innerText = 'Completed Activity';
-  hide(timerView, 'hidden');
-  show(createNewActivityView, 'hidden');
+  addClass(timerView, 'hidden');
+  removeClass(createNewActivityView, 'hidden');
 };
 
 function completeActivity() {
@@ -287,13 +278,13 @@ function completeActivity() {
 
 function disableButton(element) {
   element.disabled = true;
-  hide(element, 'disabled');
+  addClass(element, 'disabled');
 };
 
-function show(element, rule) {
+function removeClass(element, rule) {
   element.classList.remove(rule);
 };
 
-function hide(element, rule) {
+function addClass(element, rule) {
   element.classList.add(rule);
 };
