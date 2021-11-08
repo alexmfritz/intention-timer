@@ -75,12 +75,37 @@ categoryBox.addEventListener('click', function (event) {
 
 //functions
 function displayHomePage() {
+  clearInput();
+  clearButton();
+  clearErrorMessage();
+  clearCircle();
+  hide(createNewActivityView, 'hidden');
+  show(userActivityInputView, 'hidden');
+}
+
+function clearInput() {
   selectedCategory = '';
   userSecondsInput.value = '';
   userAccomplishInput.value = '';
   userMinutesInput.value = '';
-  hide(createNewActivityView, 'hidden');
-  show(userActivityInputView, 'hidden');
+}
+
+function clearButton() {
+  unhighlight(meditateButton, meditateImage, 'meditate-click', 'meditate');
+  unhighlight(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  unhighlight(studyButton, studyImage, 'study-click', 'study');
+}
+
+function clearCircle() {
+  show(circle, 'green');
+  show(circle, 'purple');
+  show(circle, 'red');
+}
+
+function clearErrorMessage() {
+  hide(accomplishError, 'visibility');
+  hide(minutesError, 'visibility');
+  hide(secondsError, 'visibility');
 }
 
 function displayCreateNewButton() {
