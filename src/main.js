@@ -77,6 +77,7 @@ categoryBox.addEventListener('click', function (event) {
 
 function displayLoggedActivity() {
   completeActivity();
+  savedActivities = parseActivities();
   pastActivitiesBox.innerHTML = '';
   for (var i = 0; i < savedActivities.length; i++) {
     pastActivitiesBox.innerHTML += `
@@ -91,6 +92,14 @@ function displayLoggedActivity() {
       </section>
     </section>`;
   };
+};
+
+function stringifyActivities(savedActivities) {
+  localStorage.setItem('savedActivities', JSON.stringify(savedActivities));
+};
+
+function parseActivities() {
+  return JSON.parse(localStorage.getItem('savedActivities'));
 };
 
 function startActivity() {
@@ -147,7 +156,6 @@ function unhighlight(element, element2, rule, icon) {
 function createActivity() {
   var color = changeColorBar()
   currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value, color);
-  savedActivities.unshift(currentActivity);
 };
 
 function checkCategory(event, category, activity) {
