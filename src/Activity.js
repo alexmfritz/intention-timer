@@ -18,9 +18,9 @@ class Activity {
         seconds = 59;
       } else {
         clearInterval(timer);
-        show(startTimerButton, 'disabled');
+        removeClass(startTimerButton, 'disabled');
         startTimerButton.innerText = 'FINISHED!';
-        show(logActivityButton, 'visibility');
+        removeClass(logActivityButton, 'visibility');
         return timerDisplay.innerText = 'NICE JOB!';
       }
       minutes = minutes.toString().padStart(2, '0');
@@ -32,9 +32,5 @@ class Activity {
     this.completed = true;
   }
   saveToStorage() {
-  var stringifiedActivity = stringifyActivities(savedActivities);
-  parseActivities();
-  savedActivities.unshift(this);
-
   }
 }
