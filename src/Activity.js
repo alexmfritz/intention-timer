@@ -32,6 +32,9 @@ class Activity {
     this.completed = true;
   }
   saveToStorage() {
+  var stringifiedActivity = stringifyActivities(savedActivities);
+  parseActivities();
+  savedActivities.unshift(this);
 
   }
 }
