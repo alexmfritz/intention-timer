@@ -8,11 +8,11 @@
   </head>
   <body>
     <header>
-      <h2 id="pageTitle">INTENTION TIMER</h2>
+      <h2 class="page-title" id="pageTitle">INTENTION TIMER</h2>
     </header>
     <main>
       <section class="activity-presenter">
-        <h2 class="activity-title" id="newActivity">New Activity</h2>
+        <h2 class="activity-title new-activity" id="newActivity">New Activity</h2>
         <section class="create-new-activity-view hidden">
           <section class="create-new-activity-box">
             <button class="create-new-activity-button">CREATE A NEW ACTIVITY</button>
@@ -29,7 +29,7 @@
           </section>
         </section>
         <section class="user-activity-input">
-          <p class="category-choices" id="category">Select a category:</p>
+          <p class="category-choices select-category" id="category">Select a category:</p>
           <div class="category-box">
             <div class="activity-card">
               <button class="activity-button study" id="study">
@@ -53,36 +53,36 @@
           <div class="selection-error-box category visibility">
             <p class="error-message" id="selectionError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A category is required.</p>
           </div>
-          <div id="accomplishBox">
+          <div class="accomplish-box" id="accomplishBox">
             <p class="category-choices" id="whatAccomplish">What would you like to accomplish during this time?</p>
-            <p><input class="user-input" id="userAccomplish" type="text" name="accomplish" min="0"/></p>
+            <p><input class="user-input user-accomplish" id="userAccomplish" type="text" name="accomplish" min="0"/></p>
           </div>
           <div class="selection-error-box accomplish visibility">
             <p class="error-message" id="accomplishError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A description is required.</p>
           </div>
-          <div id="timerTitleBox">
+          <div class="timer-title-box" id="timerTitleBox">
             <p class="category-choices" id="minutes">Minutes</p>
-            <p class="category-choices" id="seconds">Seconds</p>
+            <p class="category-choices seconds-text" id="seconds">Seconds</p>
           </div>
           <div class="timer-input-box">
             <p class="input-minutes-line">
-              <input class="user-input" id="userMinutes" type="number" name="minutes" min="0"/>
+              <input class="user-input user-minutes" id="userMinutes" type="number" name="minutes" min="0"/>
             </p>
             <p class="input-seconds-line">
-              <input class="user-input" id="userSeconds" type="number" name="seconds" min="0"/>
+              <input class="user-input user-seconds" id="userSeconds" type="number" name="seconds" min="0"/>
             </p>
           </div>
           <div class="selection-error-box minutes-seconds">
             <p class="error-message minutes visibility" id="minutesError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Minutes are required.</p>
-            <p class="error-message seconds visibility" id="secondsError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Seconds are required.</p>
+            <p class="error-message seconds-error seconds visibility" id="secondsError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />Seconds are required.</p>
           </div>
           <div class="activity-button-box">
-            <button id="startActivity">START ACTIVITY</button>
+            <button class="start-activity" id="startActivity">START ACTIVITY</button>
           </div>
         </section>
       </section>
       <aside id="activityLog">
-        <h2 class="activity-title" id="pastActivities">Past Activities</h2>
+        <h2 class="activity-title past-activities" id="pastActivities">Past Activities</h2>
         <section class="past-activities-paragraphs">
          <p class="no-logged-activities" id="noLoggedActivity">You haven't logged any activities yet.</p>
          <p class="no-logged-activities">Complete the form to the left to get started!</p>
