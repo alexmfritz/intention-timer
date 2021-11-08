@@ -39,12 +39,12 @@ var currentActivity = {};
 var savedActivities = [];
 
 //event listeners
-createNewActivityButton.addEventListener('click', displayHomePage);
 startTimerButton.addEventListener('click', beginTimer);
 startActivityButton.addEventListener('click', startActivity);
 studyButton.addEventListener('click', highlightCategoryStudy);
 meditateButton.addEventListener('click', highlightCategoryMeditate);
 exerciseButton.addEventListener('click', highlightCategoryExercise);
+createNewActivityButton.addEventListener('click', displayHomePage);
 logActivityButton.addEventListener('click', function(event) {
   addClass(pastActivitiesText, 'hidden');
   removeClass(pastActivitiesBox, 'hidden')
@@ -227,6 +227,7 @@ function validatedSeconds() {
 };
 
 function displayHomePage() {
+  activityTitle.innerHTML = 'New Activity';
   clearInput();
   clearButton();
   clearErrorMessage();
