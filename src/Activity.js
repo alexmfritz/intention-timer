@@ -8,11 +8,11 @@ class Activity {
     this.completed = false;
     this.id = Date.now();
   }
-
-  startTimer(minutes, seconds) {
+  
+  startTimer = (minutes, seconds) => {
     disableButton(startTimerButton);
     let timer = setInterval( () => {
-      if(seconds > 0) {
+      if (seconds > 0) {
         seconds -= 1;
       } else if (minutes > 0) {
         minutes -= 1;
@@ -32,8 +32,5 @@ class Activity {
 
   markComplete  = () => {
     this.completed = true;
-  }
-
-  saveToStorage = () => {
   }
 }
