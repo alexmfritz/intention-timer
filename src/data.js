@@ -7,4 +7,4 @@ var exerciseIds = ['exercise', 'exerciseImg', 'exerciseText'];
 
 var studyIds = ['study', 'studyImg', 'studyText'];
 
-var selectedCategory= '';
+var selectedCategory = '';
