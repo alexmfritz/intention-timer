@@ -8,9 +8,10 @@ class Activity {
     this.completed = false;
     this.id = Date.now();
   }
+
   startTimer(minutes, seconds) {
     disableButton(startTimerButton);
-    var timer = setInterval(function () {
+    let timer = setInterval( () => {
       if(seconds > 0) {
         seconds -= 1;
       } else if (minutes > 0) {
@@ -18,9 +19,9 @@ class Activity {
         seconds = 59;
       } else {
         clearInterval(timer);
-        removeClass(startTimerButton, 'disabled');
+        removeClass([startTimerButton], 'disabled');
         startTimerButton.innerText = 'FINISHED!';
-        removeClass(logActivityButton, 'visibility');
+        removeClass([logActivityButton], 'visibility');
         return timerDisplay.innerText = 'NICE JOB!';
       }
       minutes = minutes.toString().padStart(2, '0');
@@ -28,9 +29,11 @@ class Activity {
       timerDisplay.innerText = `${minutes}:${seconds}`}, 1000
     )
   }
-  markComplete() {
+
+  markComplete  = () => {
     this.completed = true;
   }
-  saveToStorage() {
+
+  saveToStorage = () => {
   }
 }
