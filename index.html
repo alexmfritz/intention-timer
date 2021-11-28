@@ -13,22 +13,22 @@
     <main>
       <section class="activity-presenter">
         <h2 class="activity-title new-activity" id="newActivity">New Activity</h2>
-        <section class="create-new-activity-view hidden">
+        <section class="create-new-activity-view hidden" id="createNewActivityView">
           <section class="create-new-activity-box">
-            <button class="create-new-activity-button">CREATE A NEW ACTIVITY</button>
+            <button class="create-new-activity-button" id="createNewActivity">CREATE A NEW ACTIVITY</button>
           </section>
         </section>
-        <section class="timer-presenter-view hidden">
+        <section class="timer-presenter-view hidden" id="timerView">
           <section class="chosen-timer">
-            <h2 class="chosen-activity">Deep Breathing</h2>
-            <h2 class="start-time">05:00</h2>
-              <section class="circle">
-                <button class="start">START</button>
+            <h2 class="chosen-activity" id="chosenActivity">Deep Breathing</h2>
+            <h2 class="start-time" id="startTime">05:00</h2>
+              <section class="circle" id="circle">
+                <button class="start" id="start">START</button>
               </section>
-              <button class="log-activity-button visibility">LOG ACTIVITY</button>
+              <button class="log-activity-button visibility" id="logActivity">LOG ACTIVITY</button>
           </section>
         </section>
-        <section class="user-activity-input-view">
+        <section class="user-activity-input-view" id="userInputView">
           <p class="category-choices select-category" id="category">Select a category:</p>
           <section class="category-box" id="categoryBox">
             <section class="activity-card">
@@ -57,7 +57,7 @@
             <p class="category-choices" id="whatAccomplish">What would you like to accomplish during this time?</p>
             <p><input class="user-input user-accomplish" id="userAccomplish" type="text" name="accomplish" min="0"/></p>
           </section>
-          <section class="selection-error-box accomplish visibility">
+          <section class="selection-error-box accomplish visibility" id="accomplish">
             <p class="error-message" id="accomplishError"><img class="triangle" src="./assets/warning.svg" alt="warning label" />A description is required.</p>
           </section>
           <section class="timer-title-box" id="timerTitleBox">
@@ -83,12 +83,12 @@
       </section>
       <aside id="activityLog">
         <h2 class="activity-title past-activities" id="pastActivities">Past Activities</h2>
-        <section class="past-activities-paragraphs">
+        <section class="past-activities-paragraphs" id="pastParagraphs">
          <p class="no-logged-activities" id="noLoggedActivity">You haven't logged any activities yet.</p>
          <p class="no-logged-activities">Complete the form to the left to get started!</p>
         </section>
         <section class="scroll-box">
-        <section class="empty-box hidden">
+        <section class="empty-box hidden" id="emptyBox">
         </section>
         </section>
       </aside>
