@@ -1,64 +1,64 @@
-var activityPresenter = document.querySelector('.activity-presenter');
 var activityTitle = document.getElementById('newActivity');
 var categoryBox = document.getElementById('categoryBox');
 //images
-var studyImage = document.querySelector('.study-image');
-var meditateImage = document.querySelector('.meditate-image');
-var exerciseImage = document.querySelector('.exercise-image');
+var studyImage = document.getElementById('studyImg');
+var meditateImage = document.getElementById('meditateImg');
+var exerciseImage = document.getElementById('exerciseImg');
 //buttons
-var studyButton = document.querySelector('.study');
-var meditateButton = document.querySelector('.meditate');
-var exerciseButton = document.querySelector('.exercise');
+var studyButton = document.getElementById('study');
+var meditateButton = document.getElementById('meditate');
+var exerciseButton = document.getElementById('exercise');
 var startActivityButton = document.getElementById('startActivity');
-var startTimerButton = document.querySelector('.start');
-var logActivityButton = document.querySelector('.log-activity-button');
-var createNewActivityButton = document.querySelector('.create-new-activity-button');
+var startTimerButton = document.getElementById('start');
+var logActivityButton = document.getElementById('logActivity');
+var createNewActivityButton = document.getElementById('createNewActivity');
 //inputs
 var userAccomplishInput = document.getElementById('userAccomplish');
 var userMinutesInput = document.getElementById('userMinutes');
 var userSecondsInput = document.getElementById('userSeconds');
 //views
-var timerView = document.querySelector('.timer-presenter-view');
-var userActivityInputView = document.querySelector('.user-activity-input-view');
-var createNewActivityView = document.querySelector('.create-new-activity-view');
+var timerView = document.getElementById('timerView');
+var userActivityInputView = document.getElementById('userInputView');
+var createNewActivityView = document.getElementById('createNewActivityView');
 //timer
-var timerDisplay = document.querySelector('.start-time');
-var chosenActivityDisplay = document.querySelector('.chosen-activity');
-var circle = document.querySelector('.circle');
+var timerDisplay = document.getElementById('startTime');
+var chosenActivityDisplay = document.getElementById('chosenActivity');
+var circle = document.getElementById('circle');
 //aside
-var pastActivitiesText = document.querySelector('.past-activities-paragraphs');
-var pastActivitiesBox = document.querySelector('.empty-box');
-var pastActivityLog = document.querySelector('#activityLog');
+var pastActivitiesText = document.getElementById('pastParagraphs');
+var pastActivitiesBox = document.getElementById('emptyBox');
 //errors
-var categoryError = document.querySelector('.category');
-var accomplishError = document.querySelector('.accomplish');
-var minutesError = document.querySelector('.minutes');
-var secondsError = document.querySelector('.seconds');
+var categoryError = document.getElementById('category');
+var accomplishError = document.getElementById('accomplish');
+var minutesError = document.getElementById('minutesError');
+var secondsError = document.getElementById('secondsError');
 //data model
 var currentActivity = {};
 var savedActivities = [];
 
 //functions
+
 const displayLoggedActivity = () => {
   completeActivity();
   pastActivitiesBox.innerHTML = '';
-  for (var i = 0; i < savedActivities.length; i++) {
+  savedActivities.forEach(item => {
     pastActivitiesBox.innerHTML += `
-    <section class="past-activities-box">
+      <section class="past-activities-box">
       <section class="past-activities">
-        <p class="category-header">${savedActivities[i].category}</p>
-        <p class="logged-timer">${savedActivities[i].minutes} MIN ${savedActivities[i].seconds} SECONDS</p>
-        <p class="activity-description">${savedActivities[i].description}</p>
+        <p class="category-header">${item.category}</p>
+        <p class="logged-timer">${item.minutes} MIN ${item.seconds} SECONDS</p>
+        <p class="activity-description">${item.description}</p>
       </section>
       <section class="category-color-box">
-        <div class="category-color-bar ${savedActivities[i].color}"></div>
+        <div class="category-color-bar ${item.color}"></div>
       </section>
     </section>`
-  }
+  })
 }
 
 const startActivity = () => {
-  if (selectedCategory !== '' && userAccomplishInput.value !== '' && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
+  if (selectedCategory !== '' && userAccomplishInput.value !== '' 
+  && userMinutesInput.value !== '' && userSecondsInput.value !== '') {
     createActivity();
     removeClassTimer();
     refreshTimer();
@@ -74,15 +74,15 @@ const refreshTimer = () => {
 }
 
 const changeColorBar = () => {
-  for (var i = 0; i < savedActivities.length; i++) {
-    if (savedActivities[i].category === 'Study') {
-      savedActivities[i].color = 'green-bar';
-    } else if (savedActivities[i].category === 'Meditate') {
-      savedActivities[i].color = 'purple-bar';
-    } else if (savedActivities[i].category === 'Exercise') {
-      savedActivities[i].color = 'red-bar';
+  savedActivities.forEach(item => {
+    if (item.category === 'Study') {
+      item.color = 'green-bar';
+    } else if (item.category === 'Meditate') {
+      item.color = 'purple-bar';
+    } else if (item.category === 'Exercise') {
+      item.color = 'red-bar';
     }
-  }
+  })
 }
 
 const beginTimer = () => {
@@ -103,23 +103,24 @@ const validateCategory = ()  => {
   }
 }
 
-const  unhighlightCategory = (element, element2, rule, icon) => {
+const unhighlightCategory = (element, element2, rule, icon) => {
   element2.src = `./assets/${icon}.svg`;
   element.classList.remove(rule);
 }
 
 const createActivity = () => {
   let color = changeColorBar();
-  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, userMinutesInput.value, userSecondsInput.value, color);
+  currentActivity = new Activity(selectedCategory, userAccomplishInput.value, 
+    userMinutesInput.value, userSecondsInput.value, color);
   savedActivities.unshift(currentActivity);
 }
 
 const checkCategory = (event, category, activity) => {
-  for (var i = 0; i < category.length; i++) {
-    if (category[i] === event.target.id) {
+  category.forEach(item => {
+    if (item === event.target.id) {
       selectedCategory = activity;
     }
-  }
+  })
 }
 
 const displayUserInput = () => {
@@ -140,21 +141,30 @@ const changeCircleColor = (element) => {
 }
 
 const highlightCategoryStudy = () => {
-  highlightCategory(studyButton, studyImage, 'study-click', 'study');
-  unhighlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  highlightCategory(studyButton, studyImage, 
+    'study-click', 'study');
+  unhighlightCategory(meditateButton, meditateImage, 
+    'meditate-click', 'meditate');
+  unhighlightCategory(exerciseButton, exerciseImage, 
+    'exercise-click', 'exercise');
 }
 
 const highlightCategoryMeditate = () => {
-  highlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlightCategory(studyButton, studyImage, 'study-click', 'study');
-  unhighlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
+  highlightCategory(meditateButton, meditateImage, 
+    'meditate-click', 'meditate');
+  unhighlightCategory(studyButton, studyImage, 
+    'study-click', 'study');
+  unhighlightCategory(exerciseButton, exerciseImage, 
+    'exercise-click', 'exercise');
 }
 
 const highlightCategoryExercise = () => {
-  highlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
-  unhighlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlightCategory(studyButton, studyImage, 'study-click', 'study');
+  highlightCategory(exerciseButton, exerciseImage, 
+    'exercise-click', 'exercise');
+  unhighlightCategory(meditateButton, meditateImage, 
+    'meditate-click', 'meditate');
+  unhighlightCategory(studyButton, studyImage, 
+    'study-click', 'study');
 }
 
 const removeClassTimer = () => {
@@ -215,9 +225,12 @@ const clearInput = () => {
 }
 
 const clearButton = () => {
-  unhighlightCategory(meditateButton, meditateImage, 'meditate-click', 'meditate');
-  unhighlightCategory(exerciseButton, exerciseImage, 'exercise-click', 'exercise');
-  unhighlightCategory(studyButton, studyImage, 'study-click', 'study');
+  unhighlightCategory(meditateButton, meditateImage, 
+    'meditate-click', 'meditate');
+  unhighlightCategory(exerciseButton, exerciseImage, 
+    'exercise-click', 'exercise');
+  unhighlightCategory(studyButton, studyImage, 
+    'study-click', 'study');
 }
 
 const clearCircle = () => {
@@ -279,12 +292,12 @@ logActivityButton.addEventListener('click', () => {
   displayCreateNewButton();
 });
 userMinutesInput.addEventListener('keydown', (event) => {
-  if(keyErrors.includes(event.key)) {
+  if (keyErrors.includes(event.key)) {
     event.preventDefault();
   }
 });
 userSecondsInput.addEventListener('keydown', (event) => {
-  if(keyErrors.includes(event.key)) {
+  if (keyErrors.includes(event.key)) {
     event.preventDefault();
   }
 });
